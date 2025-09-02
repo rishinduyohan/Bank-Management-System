@@ -8,8 +8,6 @@ import bms.controller.UserController;
 import bms.model.User;
 import java.sql.SQLException;
 import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -345,11 +343,13 @@ public class SignUpForm extends javax.swing.JFrame {
             boolean isAdded = UserController.addUser(user);
             if(isAdded){
                 JOptionPane.showMessageDialog(this, "User Added Success!");
+                clearForm();
             }else{
                 JOptionPane.showMessageDialog(this, "User Added Failed!");
             }
         } catch (ClassNotFoundException | SQLException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage());
+            clearForm();
         }
         
         
@@ -359,7 +359,7 @@ public class SignUpForm extends javax.swing.JFrame {
         gender = "Male";
         System.out.println(gender);
     }//GEN-LAST:event_radioMaleActionPerformed
-
+    
     private void radioFemaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioFemaleActionPerformed
         gender = "Female";
         System.out.println(gender);
@@ -375,7 +375,18 @@ public class SignUpForm extends javax.swing.JFrame {
         }
         System.out.println(status);
     }//GEN-LAST:event_statusComboActionPerformed
-
+    public void clearForm(){
+        txtName.setText("");
+        txtFName.setText("");
+        txtDob.setText("");
+        txtEmail.setText("");
+        txtAddress.setText("");
+        txtCity.setText("");
+        txtPhone.setText("");
+        txtState.setText("");
+        status = "";
+        gender = "";
+    }
     /**
      * @param args the command line arguments
      */
