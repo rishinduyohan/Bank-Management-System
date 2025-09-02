@@ -19,8 +19,9 @@ public class User {
     private String city;
     private String state;
     private String phone;
+    private String  nic;
 
-    public User(String name, String Fname, String dob, String gender, String email, String status, String address, String city, String state, String phone) {
+    public User(String name, String Fname, String dob, String gender, String email, String status, String address, String city, String state, String phone, String nic) {
         this.name = name;
         this.Fname = Fname;
         this.dob = dob;
@@ -31,8 +32,14 @@ public class User {
         this.city = city;
         this.state = state;
         this.phone = phone;
+        this.nic = nic;
     }
-
+    public String getNic(){
+        return nic;
+    }
+    public void setNic(String nic){
+        this.nic = nic;
+    }
     /**
      * @return the name
      */
