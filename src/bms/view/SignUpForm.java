@@ -324,7 +324,16 @@ public class SignUpForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-       
+        String name = txtName.getText();
+        String fname = txtFName.getText();
+        String dob = txtDob.getText();
+        String email = txtEmail.getText();
+        String address = txtAddress.getText();
+        String city = txtCity.getText();
+        String state = txtState.getText();
+        String pno = txtPhone.getText();
+        
+        
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void radioMaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioMaleActionPerformed
@@ -347,13 +356,7 @@ public class SignUpForm extends javax.swing.JFrame {
         }
         System.out.println(status);
     }//GEN-LAST:event_statusComboActionPerformed
-    public void getValues(){
-        String name = txtName.getText();
-        String fname = txtFName.getText();
-        String dob = txtDob.getText();
-        String email = txtEmail.getText();
-        
-    }
+
     /**
      * @param args the command line arguments
      */
