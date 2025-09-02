@@ -368,8 +368,6 @@ public class SignUpForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, ex.getMessage());
             clearForm();
         }
-        
-        
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void radioMaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioMaleActionPerformed

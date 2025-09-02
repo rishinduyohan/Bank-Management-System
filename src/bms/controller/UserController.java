@@ -9,7 +9,7 @@ import bms.model.User;
 
 public class UserController {
     public static boolean addUser(User user) throws ClassNotFoundException, SQLException{
-        String SQL = "Insert into Userdetails values (?,?,?,?,?,?,?,?,?,?,?)";
+        String SQL = "Insert into userdetails values (?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement stm = DBConnection.getInstance().getConnection().prepareStatement(SQL);
         stm.setObject(1, user.getName());
         stm.setObject(2, user.getFname());
