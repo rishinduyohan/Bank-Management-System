@@ -4,7 +4,13 @@
  */
 package bms.view;
 
+import bms.controller.UserController;
+import bms.model.User;
+import java.sql.SQLException;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -332,6 +338,19 @@ public class SignUpForm extends javax.swing.JFrame {
         String city = txtCity.getText();
         String state = txtState.getText();
         String pno = txtPhone.getText();
+        
+        User user = new User(name, fname, dob, gender, email, status, address, city, state, pno);
+        
+        try {
+            boolean isAdded = UserController.addUser(user);
+            if(isAdded){
+                JOptionPane.showMessageDialog(this, "User Added Success!");
+            }else{
+                JOptionPane.showMessageDialog(this, "User Added Failed!");
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
         
         
     }//GEN-LAST:event_btnNextActionPerformed
