@@ -349,7 +349,17 @@ public class SignUpSecForm extends javax.swing.JFrame {
     }//GEN-LAST:event_comboIncomeActionPerformed
 
     private void comboEduActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboEduActionPerformed
-        // TODO add your handling code here:
+        if("Non Gradguate".equals(comboEdu.getSelectedItem().toString())){
+            edu = "Non Gradguate";
+        }else if("Gradguate".equals(comboEdu.getSelectedItem().toString())){
+            edu = "Gradguate";
+        }else if("Post Gradguate".equals(comboEdu.getSelectedItem().toString())){
+            edu = "Post Gradguate";
+        }else if("Dectrate".equals(comboEdu.getSelectedItem().toString())){
+            edu = "Dectrate";
+        }else if("Other".equals(comboEdu.getSelectedItem().toString())){
+            edu = "Other";
+        }
     }//GEN-LAST:event_comboEduActionPerformed
         public void clearForm(){
         
