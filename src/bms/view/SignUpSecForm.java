@@ -16,7 +16,12 @@ import javax.swing.JOptionPane;
  */
 public class SignUpSecForm extends javax.swing.JFrame {
     private long random;
-    
+    private String religion;
+    private String categ;
+    private String income;
+    private String edu;
+    private String occu;
+    private String ExAcc = "";
     /**
      * Creates new form SignUpForm
      */
@@ -110,9 +115,19 @@ public class SignUpSecForm extends javax.swing.JFrame {
 
         comboReligion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         comboReligion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Buddhist", "Catholic", "Muslim", "Christian", "Burger", "Other" }));
+        comboReligion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboReligionActionPerformed(evt);
+            }
+        });
 
         comboCategory.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         comboCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "General", "OBC", "SC", "ST", "Other", " " }));
+        comboCategory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboCategoryActionPerformed(evt);
+            }
+        });
 
         comboIncome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         comboIncome.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "less than 150,000  >", "more than 150,000 <", "more than 200,000 <", "more than 250,000 <", "less than 500,000 >", "more than 500,000 <" }));
@@ -273,6 +288,39 @@ public class SignUpSecForm extends javax.swing.JFrame {
     private void lblRandomInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_lblRandomInputMethodTextChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_lblRandomInputMethodTextChanged
+
+    private void comboReligionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboReligionActionPerformed
+        if("Buddhist".equals(comboReligion.getSelectedItem().toString())){
+            religion = "Buddhist";
+        }else if("Catholic".equals(comboReligion.getSelectedItem().toString())){
+            religion = "Catholic";
+        }else if("Muslim".equals(comboReligion.getSelectedItem().toString())){
+            religion = "Muslim";
+        }else if("Christian".equals(comboReligion.getSelectedItem().toString())){
+            religion = "Christian";
+        }else if("Burger".equals(comboReligion.getSelectedItem().toString())){
+            religion = "Burger";
+        }else if("Other".equals(comboReligion.getSelectedItem().toString())){
+            religion = "Other";
+        }
+        System.out.println(religion);
+        
+    }//GEN-LAST:event_comboReligionActionPerformed
+
+    private void comboCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCategoryActionPerformed
+        if("General".equals(comboCategory.getSelectedItem().toString())){
+            religion = "General";
+        }else if("OBC".equals(comboCategory.getSelectedItem().toString())){
+            religion = "OBC";
+        }else if("SC".equals(comboCategory.getSelectedItem().toString())){
+            religion = "SC";
+        }else if("ST".equals(comboCategory.getSelectedItem().toString())){
+            religion = "ST";
+        }else if("Other".equals(comboCategory.getSelectedItem().toString())){
+            religion = "Other";
+        }
+
+    }//GEN-LAST:event_comboCategoryActionPerformed
         public void clearForm(){
         
     }
