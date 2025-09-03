@@ -16,14 +16,13 @@ import javax.swing.JOptionPane;
  */
 public class SignUpSecForm extends javax.swing.JFrame {
     private long random;
-    private String gender = "";
-    private String status;
+    
     /**
      * Creates new form SignUpForm
      */
-    public SignUpSecForm() {
-        Random r = new Random();
-        random = Math.abs(r.nextLong() % 9000L) + 100L;
+    public SignUpSecForm(long random) {
+        this.random = random;
+        lblRandom.setText(random+"");
         initComponents();
     }
 
@@ -254,17 +253,8 @@ public class SignUpSecForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-        String name = txtName.getText();
-        String fname = txtFName.getText();
-        String dob = txtDob.getText();
-        String email = txtEmail.getText();
-        String address = txtAddress.getText();
-        String city = txtCity.getText();
-        String state = txtState.getText();
-        String pno = txtPhone.getText();
-        String nic = txtNic.getText();
-        
-        User user = new User(name, fname, dob, gender, email, status, address, city, state, pno, nic);
+
+//        User user = new User(name, fname, dob, gender, email, status, address, city, state, pno, nic);
         
         try {
             boolean isAdded = UserController.addUser(user);
@@ -284,53 +274,11 @@ public class SignUpSecForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_lblRandomInputMethodTextChanged
         public void clearForm(){
-        txtName.setText("");
-        txtFName.setText("");
-        txtDob.setText("");
-        txtEmail.setText("");
-        txtAddress.setText("");
-        txtCity.setText("");
-        txtPhone.setText("");
-        txtState.setText("");
-        status = "";
-        gender = "";
-        txtNic.setText("");
+        
     }
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SignUpSecForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SignUpSecForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SignUpSecForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SignUpSecForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new SignUpSecForm().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
