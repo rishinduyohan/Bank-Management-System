@@ -131,9 +131,19 @@ public class SignUpSecForm extends javax.swing.JFrame {
 
         comboIncome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         comboIncome.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "less than 150,000  >", "more than 150,000 <", "more than 200,000 <", "more than 250,000 <", "less than 500,000 >", "more than 500,000 <" }));
+        comboIncome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboIncomeActionPerformed(evt);
+            }
+        });
 
         comboEdu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         comboEdu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Non Gradguate", "Gradguate", "Post Gradguate", "Dectrate", "Other" }));
+        comboEdu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboEduActionPerformed(evt);
+            }
+        });
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel14.setText("Occupation : ");
@@ -309,18 +319,38 @@ public class SignUpSecForm extends javax.swing.JFrame {
 
     private void comboCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCategoryActionPerformed
         if("General".equals(comboCategory.getSelectedItem().toString())){
-            religion = "General";
+            categ = "General";
         }else if("OBC".equals(comboCategory.getSelectedItem().toString())){
-            religion = "OBC";
+            categ = "OBC";
         }else if("SC".equals(comboCategory.getSelectedItem().toString())){
-            religion = "SC";
+            categ = "SC";
         }else if("ST".equals(comboCategory.getSelectedItem().toString())){
-            religion = "ST";
+            categ = "ST";
         }else if("Other".equals(comboCategory.getSelectedItem().toString())){
-            religion = "Other";
+            categ = "Other";
         }
 
     }//GEN-LAST:event_comboCategoryActionPerformed
+
+    private void comboIncomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboIncomeActionPerformed
+         if("less than 150,000  >".equals(comboIncome.getSelectedItem().toString())){
+            income = "less than 150,000  >";
+        }else if("more than 150,000 <".equals(comboIncome.getSelectedItem().toString())){
+            income = "more than 150,000 <";
+        }else if("more than 200,000 <".equals(comboIncome.getSelectedItem().toString())){
+            income = "more than 200,000 <";
+        }else if("more than 250,000 <".equals(comboIncome.getSelectedItem().toString())){
+            income = "more than 250,000 <";
+        }else if("less than 500,000 >".equals(comboIncome.getSelectedItem().toString())){
+            income = "less than 500,000 >";
+        }else if("more than 500,000 <".equals(comboIncome.getSelectedItem().toString())){
+            income = "more than 500,000 <";
+        }
+    }//GEN-LAST:event_comboIncomeActionPerformed
+
+    private void comboEduActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboEduActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboEduActionPerformed
         public void clearForm(){
         
     }
