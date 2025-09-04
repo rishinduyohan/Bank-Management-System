@@ -41,23 +41,27 @@ public class SignUpThirdForm extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         btnNext = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
-        comboReligion = new javax.swing.JComboBox<>();
-        comboCategory = new javax.swing.JComboBox<>();
-        comboIncome = new javax.swing.JComboBox<>();
-        comboEdu = new javax.swing.JComboBox<>();
-        jLabel14 = new javax.swing.JLabel();
-        comboSalary = new javax.swing.JComboBox<>();
-        jLabel15 = new javax.swing.JLabel();
-        radioYes = new javax.swing.JRadioButton();
-        radioNo = new javax.swing.JRadioButton();
         lblRandom = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        radioSaving = new javax.swing.JRadioButton();
+        radioCurrent = new javax.swing.JRadioButton();
+        radioFixed = new javax.swing.JRadioButton();
+        radioRecurring = new javax.swing.JRadioButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        checkAtm = new javax.swing.JCheckBox();
+        checkMobile = new javax.swing.JCheckBox();
+        checkInternet = new javax.swing.JCheckBox();
+        checkEmail = new javax.swing.JCheckBox();
+        checkBook = new javax.swing.JCheckBox();
+        checkStatement = new javax.swing.JCheckBox();
 
         buttonGroup1.add(radioYes);
         buttonGroup1.add(radioNo);
@@ -65,8 +69,9 @@ public class SignUpThirdForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 204));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("New Account Application Form");
+        jLabel1.setText("Account Details");
         jLabel1.addInputMethodListener(new java.awt.event.InputMethodListener() {
             public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
@@ -74,23 +79,6 @@ public class SignUpThirdForm extends javax.swing.JFrame {
                 jLabel1InputMethodTextChanged(evt);
             }
         });
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 51, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Page 2 : Additional Details");
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel3.setText("Religion : ");
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setText("Category : ");
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel5.setText("Income : ");
-
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel7.setText("Education : ");
 
         btnNext.setBackground(new java.awt.Color(51, 153, 0));
         btnNext.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -112,58 +100,6 @@ public class SignUpThirdForm extends javax.swing.JFrame {
             }
         });
 
-        comboReligion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        comboReligion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Buddhist", "Catholic", "Muslim", "Christian", "Burger", "Other" }));
-        comboReligion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboReligionActionPerformed(evt);
-            }
-        });
-
-        comboCategory.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        comboCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "General", "OBC", "SC", "ST", "Other", " " }));
-        comboCategory.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboCategoryActionPerformed(evt);
-            }
-        });
-
-        comboIncome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        comboIncome.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "less than 150,000  >", "more than 150,000 <", "more than 200,000 <", "more than 250,000 <", "less than 500,000 >", "more than 500,000 <" }));
-        comboIncome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboIncomeActionPerformed(evt);
-            }
-        });
-
-        comboEdu.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        comboEdu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Non Gradguate", "Gradguate", "Post Gradguate", "Dectrate", "Other" }));
-        comboEdu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboEduActionPerformed(evt);
-            }
-        });
-
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel14.setText("Occupation : ");
-
-        comboSalary.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        comboSalary.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Salaried", "Self-Employed", "Employee", "Student", "Retired", "Other", " " }));
-        comboSalary.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboSalaryActionPerformed(evt);
-            }
-        });
-
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel15.setText("Exsisting Acc.:");
-
-        radioYes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        radioYes.setText("Yes");
-
-        radioNo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        radioNo.setText("No");
-
         lblRandom.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblRandom.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblRandom.setText("..");
@@ -184,98 +120,179 @@ public class SignUpThirdForm extends javax.swing.JFrame {
             }
         });
 
+        jLabel6.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 18)); // NOI18N
+        jLabel6.setText("Account Type");
+
+        radioSaving.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        radioSaving.setText("Saving Account");
+
+        radioCurrent.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        radioCurrent.setText("Current Account");
+
+        radioFixed.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        radioFixed.setText("Fixed Deposit Acc");
+        radioFixed.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioFixedActionPerformed(evt);
+            }
+        });
+
+        radioRecurring.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        radioRecurring.setText("Recurring Deposite Acc");
+        radioRecurring.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioRecurringActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 18)); // NOI18N
+        jLabel7.setText("Card Number");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel3.setText("Your 16 digit card number");
+
+        jLabel8.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 18)); // NOI18N
+        jLabel8.setText("XXXX-XXXX-XXXX-6589");
+
+        jLabel9.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 18)); // NOI18N
+        jLabel9.setText("PIN");
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel4.setText("Your 4 digit PIN number");
+
+        jLabel10.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 18)); // NOI18N
+        jLabel10.setText("XXXX");
+
+        jLabel11.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 18)); // NOI18N
+        jLabel11.setText("Service Requried");
+
+        checkAtm.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        checkAtm.setText("ATM Card");
+
+        checkMobile.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        checkMobile.setText("Mobile Banking");
+
+        checkInternet.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        checkInternet.setText("Internet Banking");
+
+        checkEmail.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        checkEmail.setText("Email & SMS Alert");
+
+        checkBook.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        checkBook.setText("Cheque Book");
+
+        checkStatement.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        checkStatement.setText("E - Statement");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(lblRandom, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(16, 16, 16))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 532, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(422, 422, 422)
+                        .addComponent(lblRandom, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(91, 91, 91)
+                        .addComponent(radioSaving, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(86, 86, 86)
+                        .addComponent(radioFixed, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(91, 91, 91)
+                        .addComponent(radioCurrent, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(86, 86, 86)
+                        .addComponent(radioRecurring))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(95, 95, 95)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(66, 66, 66)
-                                .addComponent(comboReligion, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(66, 66, 66)
-                                .addComponent(comboCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(66, 66, 66)
-                                .addComponent(comboIncome, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(50, 50, 50)
-                                .addComponent(comboEdu, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel14)
-                                .addGap(50, 50, 50)
-                                .addComponent(comboSalary, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(32, 32, 32)
-                                .addComponent(radioYes, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(52, 52, 52)
-                                .addComponent(radioNo, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(240, 240, 240)
-                                .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(22, 22, 22)
-                                .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(22, 22, 22))))
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(95, 95, 95)
+                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(checkAtm, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(checkMobile, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(checkBook, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(15, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(checkStatement, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(checkInternet, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(22, 22, 22))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(checkEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(7, 7, 7)))
+                        .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(15, 15, 15))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(lblRandom)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(6, 6, 6)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboReligion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(comboIncome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(2, 2, 2)))
                 .addGap(18, 18, 18)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboEdu, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
+                    .addComponent(radioSaving, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(radioFixed, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboSalary, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(radioYes)
-                    .addComponent(radioNo))
-                .addGap(10, 10, 10)
+                    .addComponent(radioCurrent, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(radioRecurring, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(checkAtm)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(checkMobile))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(checkInternet)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(checkEmail)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(checkBook)
+                    .addComponent(checkStatement))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addGap(19, 19, 19))
         );
 
         pack();
@@ -311,89 +328,17 @@ public class SignUpThirdForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_lblRandomInputMethodTextChanged
 
-    private void comboReligionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboReligionActionPerformed
-        if("Buddhist".equals(comboReligion.getSelectedItem().toString())){
-            religion = "Buddhist";
-        }else if("Catholic".equals(comboReligion.getSelectedItem().toString())){
-            religion = "Catholic";
-        }else if("Muslim".equals(comboReligion.getSelectedItem().toString())){
-            religion = "Muslim";
-        }else if("Christian".equals(comboReligion.getSelectedItem().toString())){
-            religion = "Christian";
-        }else if("Burger".equals(comboReligion.getSelectedItem().toString())){
-            religion = "Burger";
-        }else if("Other".equals(comboReligion.getSelectedItem().toString())){
-            religion = "Other";
-        }
-        System.out.println(religion);
-        
-    }//GEN-LAST:event_comboReligionActionPerformed
-
-    private void comboCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboCategoryActionPerformed
-        if("General".equals(comboCategory.getSelectedItem().toString())){
-            categ = "General";
-        }else if("OBC".equals(comboCategory.getSelectedItem().toString())){
-            categ = "OBC";
-        }else if("SC".equals(comboCategory.getSelectedItem().toString())){
-            categ = "SC";
-        }else if("ST".equals(comboCategory.getSelectedItem().toString())){
-            categ = "ST";
-        }else if("Other".equals(comboCategory.getSelectedItem().toString())){
-            categ = "Other";
-        }
-
-    }//GEN-LAST:event_comboCategoryActionPerformed
-
-    private void comboIncomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboIncomeActionPerformed
-         if("less than 150,000  >".equals(comboIncome.getSelectedItem().toString())){
-            income = "less than 150,000  >";
-        }else if("more than 150,000 <".equals(comboIncome.getSelectedItem().toString())){
-            income = "more than 150,000 <";
-        }else if("more than 200,000 <".equals(comboIncome.getSelectedItem().toString())){
-            income = "more than 200,000 <";
-        }else if("more than 250,000 <".equals(comboIncome.getSelectedItem().toString())){
-            income = "more than 250,000 <";
-        }else if("less than 500,000 >".equals(comboIncome.getSelectedItem().toString())){
-            income = "less than 500,000 >";
-        }else if("more than 500,000 <".equals(comboIncome.getSelectedItem().toString())){
-            income = "more than 500,000 <";
-        }
-    }//GEN-LAST:event_comboIncomeActionPerformed
-
-    private void comboEduActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboEduActionPerformed
-        if("Non Gradguate".equals(comboEdu.getSelectedItem().toString())){
-            edu = "Non Gradguate";
-        }else if("Gradguate".equals(comboEdu.getSelectedItem().toString())){
-            edu = "Gradguate";
-        }else if("Post Gradguate".equals(comboEdu.getSelectedItem().toString())){
-            edu = "Post Gradguate";
-        }else if("Dectrate".equals(comboEdu.getSelectedItem().toString())){
-            edu = "Dectrate";
-        }else if("Other".equals(comboEdu.getSelectedItem().toString())){
-            edu = "Other";
-        }
-    }//GEN-LAST:event_comboEduActionPerformed
-
-    private void comboSalaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSalaryActionPerformed
-         if("Salaried".equals(comboSalary.getSelectedItem().toString())){
-            occu = "Salaried";
-        }else if("Self-Employed".equals(comboSalary.getSelectedItem().toString())){
-            occu = "Self-Employed";
-        }else if("Employee".equals(comboSalary.getSelectedItem().toString())){
-            occu = "Employee";
-        }else if("Student".equals(comboSalary.getSelectedItem().toString())){
-            occu = "Student";
-        }else if("Retired".equals(comboSalary.getSelectedItem().toString())){
-            occu = "Retired";
-        }else if("Other".equals(comboSalary.getSelectedItem().toString())){
-            occu = "Other";
-        }
-
-    }//GEN-LAST:event_comboSalaryActionPerformed
-
     private void lblRandomAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_lblRandomAncestorAdded
         lblRandom.setText(random+"");
     }//GEN-LAST:event_lblRandomAncestorAdded
+
+    private void radioFixedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioFixedActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_radioFixedActionPerformed
+
+    private void radioRecurringActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioRecurringActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_radioRecurringActionPerformed
         
     public String isExsisting(){
         if(radioYes.isSelected()){
@@ -409,21 +354,25 @@ public class SignUpThirdForm extends javax.swing.JFrame {
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnNext;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JComboBox<String> comboCategory;
-    private javax.swing.JComboBox<String> comboEdu;
-    private javax.swing.JComboBox<String> comboIncome;
-    private javax.swing.JComboBox<String> comboReligion;
-    private javax.swing.JComboBox<String> comboSalary;
+    private javax.swing.JCheckBox checkAtm;
+    private javax.swing.JCheckBox checkBook;
+    private javax.swing.JCheckBox checkEmail;
+    private javax.swing.JCheckBox checkInternet;
+    private javax.swing.JCheckBox checkMobile;
+    private javax.swing.JCheckBox checkStatement;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lblRandom;
-    private javax.swing.JRadioButton radioNo;
-    private javax.swing.JRadioButton radioYes;
+    private javax.swing.JRadioButton radioCurrent;
+    private javax.swing.JRadioButton radioFixed;
+    private javax.swing.JRadioButton radioRecurring;
+    private javax.swing.JRadioButton radioSaving;
     // End of variables declaration//GEN-END:variables
 }
