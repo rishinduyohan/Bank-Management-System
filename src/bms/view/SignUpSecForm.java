@@ -5,7 +5,6 @@
 package bms.view;
 
 import bms.DBConnection.DBConnection;
-import bms.controller.UserController;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import java.sql.*;
@@ -96,7 +95,7 @@ public class SignUpSecForm extends javax.swing.JFrame {
         btnNext.setBackground(new java.awt.Color(51, 153, 0));
         btnNext.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnNext.setForeground(new java.awt.Color(255, 255, 255));
-        btnNext.setText("Next");
+        btnNext.setText("Finish");
         btnNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNextActionPerformed(evt);
@@ -292,9 +291,9 @@ public class SignUpSecForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-       
+       ExAcc = isExsisting();
         try {
-            String SQL = "Insert into userAdditionalDetails values ('"+nic+"','"+religion+"','"+categ+"','"+income+"','"+edu+"','"+occu+"','"+ExAcc+"',)";
+            String SQL = "Insert into userAdditionalDetails values ('"+nic+"','"+religion+"','"+categ+"','"+income+"','"+edu+"','"+occu+"','"+ExAcc+"')";
             Statement stm = DBConnection.getInstance().getConnection().createStatement();
             int res = stm.executeUpdate(SQL);
             boolean isAdded = res>0;
