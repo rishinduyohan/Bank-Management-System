@@ -251,6 +251,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Saving Account"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioSavingActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="radioCurrent">
       <Properties>
@@ -262,6 +265,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Current Account"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radioCurrentActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="radioFixed">
       <Properties>

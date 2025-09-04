@@ -4,7 +4,6 @@
  */
 package bms.view;
 
-import bms.DBConnection.DBConnection;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import java.sql.*;
@@ -15,12 +14,9 @@ import java.sql.*;
 public class SignUpThirdForm extends javax.swing.JFrame {
     private long random;
     private String nic;
-    private String religion;
-    private String categ;
-    private String income;
-    private String edu;
-    private String occu;
-    private String ExAcc;
+    private String account;
+    private String services;
+   
     /**
      * Creates new form SignUpForm
      */
@@ -129,10 +125,20 @@ public class SignUpThirdForm extends javax.swing.JFrame {
         buttonGroup1.add(radioSaving);
         radioSaving.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         radioSaving.setText("Saving Account");
+        radioSaving.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioSavingActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(radioCurrent);
         radioCurrent.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         radioCurrent.setText("Current Account");
+        radioCurrent.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radioCurrentActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(radioFixed);
         radioFixed.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -321,12 +327,9 @@ public class SignUpThirdForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-       
+        
         try {
-            String SQL = "Insert into userAdditionalDetails values ('"+nic+"','"+religion+"','"+categ+"','"+income+"','"+edu+"','"+occu+"','"+ExAcc+"')";
-            Statement stm = DBConnection.getInstance().getConnection().createStatement();
-            int res = stm.executeUpdate(SQL);
-            boolean isAdded = res>0;
+            
             if(isAdded){
                 JOptionPane.showMessageDialog(this, "Details Added to the system!");
             }else{
@@ -346,12 +349,20 @@ public class SignUpThirdForm extends javax.swing.JFrame {
     }//GEN-LAST:event_lblRandomAncestorAdded
 
     private void radioFixedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioFixedActionPerformed
-        // TODO add your handling code here:
+       account = "Fixed Deposit Acc";
     }//GEN-LAST:event_radioFixedActionPerformed
 
     private void radioRecurringActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioRecurringActionPerformed
-        // TODO add your handling code here:
+        account = "Recurring Deposite Acc";
     }//GEN-LAST:event_radioRecurringActionPerformed
+
+    private void radioSavingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioSavingActionPerformed
+        account = "Saving Account";
+    }//GEN-LAST:event_radioSavingActionPerformed
+
+    private void radioCurrentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioCurrentActionPerformed
+        account = "Current Account";
+    }//GEN-LAST:event_radioCurrentActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
