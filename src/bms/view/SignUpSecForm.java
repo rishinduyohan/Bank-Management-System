@@ -28,7 +28,6 @@ public class SignUpSecForm extends javax.swing.JFrame {
     public SignUpSecForm(long random,String nic) {
         this.nic = nic;
         this.random = random;
-        lblRandom.setText(random+"");
         initComponents();
     }
 
@@ -169,6 +168,15 @@ public class SignUpSecForm extends javax.swing.JFrame {
         lblRandom.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         lblRandom.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblRandom.setText("..");
+        lblRandom.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                lblRandomAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         lblRandom.addInputMethodListener(new java.awt.event.InputMethodListener() {
             public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
             }
@@ -383,6 +391,10 @@ public class SignUpSecForm extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_comboSalaryActionPerformed
+
+    private void lblRandomAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_lblRandomAncestorAdded
+        lblRandom.setText(random+"");
+    }//GEN-LAST:event_lblRandomAncestorAdded
         
     public String isExsisting(){
         if(radioYes.isSelected()){

@@ -101,6 +101,12 @@ public class SignUpForm extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("Name : ");
 
+        txtName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNameActionPerformed(evt);
+            }
+        });
+
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setText("Father's Name : ");
 
@@ -387,9 +393,15 @@ public class SignUpForm extends javax.swing.JFrame {
             status = "Unmarried";
         }else if("Other".equals(statusCombo.getSelectedItem().toString())){
             status = "Other";
+        }else{
+            JOptionPane.showMessageDialog(this, "Please select an option to continue");
         }
         System.out.println(status);
     }//GEN-LAST:event_statusComboActionPerformed
+
+    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNameActionPerformed
     public void clearForm(){
         txtName.setText("");
         txtFName.setText("");
