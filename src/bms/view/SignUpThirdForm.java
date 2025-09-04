@@ -332,7 +332,7 @@ public class SignUpThirdForm extends javax.swing.JFrame {
         int pin =  Integer.parseInt(lblPin.getText());
         getServices();
         
-        Account newAcc = new Account(account, card, pin, services, nic);
+        Account newAcc = new Account(nic,account, card, pin, services);
         try {
             boolean isAdded = AccountController.addAccount(newAcc);
             if(isAdded){

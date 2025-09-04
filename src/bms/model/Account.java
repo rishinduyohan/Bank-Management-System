@@ -11,7 +11,7 @@ public class Account {
     private int pin;
     private String services;
 
-    public Account(String accType, String cardNumber, int pin, String services, String nic) {
+    public Account(String nic,String accType, String cardNumber, int pin, String services) {
         this.accType = accType;
         this.cardNumber = cardNumber;
         this.pin = pin;
