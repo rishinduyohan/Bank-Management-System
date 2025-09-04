@@ -321,7 +321,7 @@ public class SignUpThirdForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-       ExAcc = isExsisting();
+       
         try {
             String SQL = "Insert into userAdditionalDetails values ('"+nic+"','"+religion+"','"+categ+"','"+income+"','"+edu+"','"+occu+"','"+ExAcc+"')";
             Statement stm = DBConnection.getInstance().getConnection().createStatement();
@@ -352,17 +352,7 @@ public class SignUpThirdForm extends javax.swing.JFrame {
     private void radioRecurringActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioRecurringActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_radioRecurringActionPerformed
-        
-    public String isExsisting(){
-        if(radioYes.isSelected()){
-            ExAcc = "yes";
-        }else if(radioNo.isSelected()){
-            ExAcc = "No";
-        }else{
-            JOptionPane.showMessageDialog(this, "Please select one option in Exsisting Account");
-        }
-        return ExAcc;
-    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnNext;
