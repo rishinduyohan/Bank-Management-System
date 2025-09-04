@@ -58,14 +58,14 @@
                           <Group type="102" attributes="0">
                               <Component id="jLabel7" min="-2" pref="136" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
-                              <Component id="jLabel8" min="-2" pref="267" max="-2" attributes="0"/>
+                              <Component id="lblCardNumber" min="-2" pref="267" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jLabel6" min="-2" pref="136" max="-2" attributes="0"/>
                           <Component id="jLabel3" alignment="0" min="-2" pref="171" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel9" min="-2" pref="136" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
-                              <Component id="jLabel10" min="-2" pref="267" max="-2" attributes="0"/>
+                              <Component id="lblPin" min="-2" pref="267" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jLabel4" alignment="0" min="-2" pref="171" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="1" attributes="0">
@@ -74,7 +74,7 @@
                               <Component id="checkMobile" alignment="1" min="-2" pref="143" max="-2" attributes="0"/>
                               <Component id="checkBook" alignment="1" min="-2" pref="143" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="checkBook1" max="32767" attributes="0"/>
+                          <Component id="checkAgrement" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -127,14 +127,14 @@
               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel7" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                  <Component id="jLabel8" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                  <Component id="lblCardNumber" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel3" min="-2" pref="16" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel9" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                  <Component id="jLabel10" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                  <Component id="lblPin" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel4" min="-2" pref="16" max="-2" attributes="0"/>
@@ -159,7 +159,7 @@
                   <Component id="checkStatement" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" pref="27" max="32767" attributes="0"/>
-              <Component id="checkBook1" min="-2" max="-2" attributes="0"/>
+              <Component id="checkAgrement" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="btnCancel" min="-2" pref="33" max="-2" attributes="0"/>
@@ -313,7 +313,7 @@
         <Property name="text" type="java.lang.String" value="Your 16 digit card number"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel8">
+    <Component class="javax.swing.JLabel" name="lblCardNumber">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="MS Reference Sans Serif" size="18" style="1"/>
@@ -337,7 +337,7 @@
         <Property name="text" type="java.lang.String" value="Your 4 digit PIN number"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel10">
+    <Component class="javax.swing.JLabel" name="lblPin">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="MS Reference Sans Serif" size="18" style="1"/>
@@ -401,7 +401,7 @@
         <Property name="text" type="java.lang.String" value="E - Statement"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JCheckBox" name="checkBook1">
+    <Component class="javax.swing.JCheckBox" name="checkAgrement">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="33" red="0" type="rgb"/>

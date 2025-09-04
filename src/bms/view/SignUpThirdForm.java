@@ -4,9 +4,10 @@
  */
 package bms.view;
 
+import bms.controller.AccountController;
+import bms.model.Account;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
-import java.sql.*;
 /**
  *
  * @author acer
@@ -47,10 +48,10 @@ public class SignUpThirdForm extends javax.swing.JFrame {
         radioRecurring = new javax.swing.JRadioButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
+        lblCardNumber = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        lblPin = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         checkAtm = new javax.swing.JCheckBox();
         checkMobile = new javax.swing.JCheckBox();
@@ -58,7 +59,7 @@ public class SignUpThirdForm extends javax.swing.JFrame {
         checkEmail = new javax.swing.JCheckBox();
         checkBook = new javax.swing.JCheckBox();
         checkStatement = new javax.swing.JCheckBox();
-        checkBook1 = new javax.swing.JCheckBox();
+        checkAgrement = new javax.swing.JCheckBox();
 
         buttonGroup1.add(radioSaving);
         buttonGroup1.add(radioCurrent);
@@ -164,8 +165,8 @@ public class SignUpThirdForm extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("Your 16 digit card number");
 
-        jLabel8.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 18)); // NOI18N
-        jLabel8.setText("XXXX-XXXX-XXXX-6589");
+        lblCardNumber.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 18)); // NOI18N
+        lblCardNumber.setText("XXXX-XXXX-XXXX-6589");
 
         jLabel9.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 18)); // NOI18N
         jLabel9.setText("PIN");
@@ -173,8 +174,8 @@ public class SignUpThirdForm extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("Your 4 digit PIN number");
 
-        jLabel10.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 18)); // NOI18N
-        jLabel10.setText("XXXX");
+        lblPin.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 18)); // NOI18N
+        lblPin.setText("XXXX");
 
         jLabel11.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 18)); // NOI18N
         jLabel11.setText("Service Requried");
@@ -197,8 +198,8 @@ public class SignUpThirdForm extends javax.swing.JFrame {
         checkStatement.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         checkStatement.setText("E - Statement");
 
-        checkBook1.setForeground(new java.awt.Color(0, 51, 204));
-        checkBook1.setText("I hereby decleares that the above details are correct to the best of my knowledge");
+        checkAgrement.setForeground(new java.awt.Color(0, 51, 204));
+        checkAgrement.setText("I hereby decleares that the above details are correct to the best of my knowledge");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -228,20 +229,20 @@ public class SignUpThirdForm extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(95, 95, 95)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lblCardNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(95, 95, 95)
-                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(lblPin, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(checkAtm, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(checkMobile, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(checkBook, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(checkBook1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(checkAgrement, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(15, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -280,13 +281,13 @@ public class SignUpThirdForm extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblCardNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblPin, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
@@ -306,7 +307,7 @@ public class SignUpThirdForm extends javax.swing.JFrame {
                     .addComponent(checkBook)
                     .addComponent(checkStatement))
                 .addGap(18, 27, Short.MAX_VALUE)
-                .addComponent(checkBook1)
+                .addComponent(checkAgrement)
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -327,9 +328,13 @@ public class SignUpThirdForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
+        String card = lblCardNumber.getText();
+        int pin =  Integer.parseInt(lblPin.getText());
+        getServices();
         
+        Account newAcc = new Account(account, card, pin, services, nic);
         try {
-            
+            boolean isAdded = AccountController.addAccount(newAcc);
             if(isAdded){
                 JOptionPane.showMessageDialog(this, "Details Added to the system!");
             }else{
@@ -363,27 +368,46 @@ public class SignUpThirdForm extends javax.swing.JFrame {
     private void radioCurrentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioCurrentActionPerformed
         account = "Current Account";
     }//GEN-LAST:event_radioCurrentActionPerformed
-
+    private void getServices(){
+        if(checkAtm.isSelected()){
+           services += "ATM Card, ";
+        }
+        if(checkMobile.isSelected()){
+           services += "Mobile Banking, ";
+        }
+        if(checkBook.isSelected()){
+           services += "Cheque Book, "; 
+        }
+        if(checkInternet.isSelected()){
+            services += "Internet Banking, ";
+        }
+        if(checkEmail.isSelected()){
+            services += "Email & SMS Alert, ";
+        }
+        if(checkEmail.isSelected()){
+            services += "E - Statement, ";
+        }  
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnNext;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JCheckBox checkAgrement;
     private javax.swing.JCheckBox checkAtm;
     private javax.swing.JCheckBox checkBook;
-    private javax.swing.JCheckBox checkBook1;
     private javax.swing.JCheckBox checkEmail;
     private javax.swing.JCheckBox checkInternet;
     private javax.swing.JCheckBox checkMobile;
     private javax.swing.JCheckBox checkStatement;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel lblCardNumber;
+    private javax.swing.JLabel lblPin;
     private javax.swing.JLabel lblRandom;
     private javax.swing.JRadioButton radioCurrent;
     private javax.swing.JRadioButton radioFixed;
