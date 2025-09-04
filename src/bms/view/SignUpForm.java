@@ -119,6 +119,12 @@ public class SignUpForm extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setText("Date of Birth : ");
 
+        txtDob.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDobActionPerformed(evt);
+            }
+        });
+
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setText("Gender : ");
 
@@ -181,6 +187,12 @@ public class SignUpForm extends javax.swing.JFrame {
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelActionPerformed(evt);
+            }
+        });
+
+        txtNic.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNicActionPerformed(evt);
             }
         });
 
@@ -342,7 +354,9 @@ public class SignUpForm extends javax.swing.JFrame {
     }//GEN-LAST:event_lblRandomAncestorAdded
 
     private void txtFNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFNameActionPerformed
-        // TODO add your handling code here:
+        if("".equals(txtFName.getText())){
+            JOptionPane.showMessageDialog(this, "Enter name to continue");
+        }
     }//GEN-LAST:event_txtFNameActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
@@ -359,21 +373,24 @@ public class SignUpForm extends javax.swing.JFrame {
         String state = txtState.getText();
         String pno = txtPhone.getText();
         String nic = txtNic.getText();
-        
-        User user = new User(name, fname, dob, gender, email, status, address, city, state, pno, nic);
-        
-        try {
-            boolean isAdded = UserController.addUser(user);
-            if(isAdded){
+       if(isEmptyDetails()){ 
+            User user = new User(name, fname, dob, gender, email, status, address, city, state, pno, nic);
+
+            try {
+                boolean isAdded = UserController.addUser(user);
+                if(isAdded){
+                    clearForm();
+                    new SignUpSecForm(random,nic).setVisible(true);
+                }else{
+                    JOptionPane.showMessageDialog(this, "User Added Failed!");
+                }
+            } catch (ClassNotFoundException | SQLException ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage());
                 clearForm();
-                new SignUpSecForm(random,nic).setVisible(true);
-            }else{
-                JOptionPane.showMessageDialog(this, "User Added Failed!");
             }
-        } catch (ClassNotFoundException | SQLException ex) {
-            JOptionPane.showMessageDialog(this, ex.getMessage());
-            clearForm();
-        }
+       }else{
+           JOptionPane.showMessageDialog(this, "Please fill the all details!");
+       }
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void radioMaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioMaleActionPerformed
@@ -385,7 +402,30 @@ public class SignUpForm extends javax.swing.JFrame {
         gender = "Female";
         System.out.println(gender);
     }//GEN-LAST:event_radioFemaleActionPerformed
-
+    public boolean isEmptyDetails(){
+        if(!"".equals(txtName.getText())){
+            return true;
+        }
+        if(!"".equals(txtFName.getText())){
+            return true;
+        }
+        if(!"".equals(txtAddress.getText())){
+            return true;
+        }
+        if(!"".equals(txtCity.getText())){
+            return true;
+        }
+        if(!"".equals(txtDob.getText())){
+            return true;
+        }
+        if(!"".equals(txtEmail.getText())){
+            return true;
+        }
+        if(!"".equals(txtNic.getText())){
+            return true;
+        }
+        return false;
+    }
     private void statusComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statusComboActionPerformed
         if("Married".equals(statusCombo.getSelectedItem().toString())){
             status = "Married";
@@ -400,8 +440,22 @@ public class SignUpForm extends javax.swing.JFrame {
     }//GEN-LAST:event_statusComboActionPerformed
 
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
-        // TODO add your handling code here:
+        if("".equals(txtName.getText())){
+            JOptionPane.showMessageDialog(this, "Enter name to continue");
+        }
     }//GEN-LAST:event_txtNameActionPerformed
+
+    private void txtDobActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDobActionPerformed
+       if("".equals(txtDob.getText())){
+            JOptionPane.showMessageDialog(this, "Enter Date of birth");
+        }
+    }//GEN-LAST:event_txtDobActionPerformed
+
+    private void txtNicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNicActionPerformed
+        if("".equals(txtNic.getText())){
+            JOptionPane.showMessageDialog(this, "Enter NIC to continue");
+        }
+    }//GEN-LAST:event_txtNicActionPerformed
     public void clearForm(){
         txtName.setText("");
         txtFName.setText("");
