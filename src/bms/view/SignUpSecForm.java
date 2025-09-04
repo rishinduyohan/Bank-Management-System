@@ -5,9 +5,7 @@
 package bms.view;
 
 import bms.controller.UserController;
-import bms.model.User;
 import java.sql.SQLException;
-import java.util.Random;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,16 +14,18 @@ import javax.swing.JOptionPane;
  */
 public class SignUpSecForm extends javax.swing.JFrame {
     private long random;
+    private String nic;
     private String religion;
     private String categ;
     private String income;
     private String edu;
     private String occu;
-    private String ExAcc = "";
+    private String ExAcc;
     /**
      * Creates new form SignUpForm
      */
-    public SignUpSecForm(long random) {
+    public SignUpSecForm(long random,String nic) {
+        this.nic = nic;
         this.random = random;
         lblRandom.setText(random+"");
         initComponents();
@@ -383,7 +383,18 @@ public class SignUpSecForm extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_comboSalaryActionPerformed
-        public void clearForm(){
+        
+    public String isExsisting(){
+        if(radioYes.isSelected()){
+            ExAcc = "yes";
+        }else if(radioNo.isSelected()){
+            ExAcc = "No";
+        }else{
+            JOptionPane.showMessageDialog(this, "Please select one option in Exsisting Account");
+        }
+        return ExAcc;
+    }
+    public void clearForm(){
         
     }
     /**
