@@ -150,6 +150,11 @@ public class SignUpSecForm extends javax.swing.JFrame {
 
         comboSalary.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         comboSalary.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Salaried", "Self-Employed", "Employee", "Student", "Retired", "Other", " " }));
+        comboSalary.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboSalaryActionPerformed(evt);
+            }
+        });
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel15.setText("Exsisting Acc.:");
@@ -361,6 +366,23 @@ public class SignUpSecForm extends javax.swing.JFrame {
             edu = "Other";
         }
     }//GEN-LAST:event_comboEduActionPerformed
+
+    private void comboSalaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSalaryActionPerformed
+         if("Salaried".equals(comboSalary.getSelectedItem().toString())){
+            occu = "Salaried";
+        }else if("Self-Employed".equals(comboSalary.getSelectedItem().toString())){
+            occu = "Self-Employed";
+        }else if("Employee".equals(comboSalary.getSelectedItem().toString())){
+            occu = "Employee";
+        }else if("Student".equals(comboSalary.getSelectedItem().toString())){
+            occu = "Student";
+        }else if("Retired".equals(comboSalary.getSelectedItem().toString())){
+            occu = "Retired";
+        }else if("Other".equals(comboSalary.getSelectedItem().toString())){
+            occu = "Other";
+        }
+
+    }//GEN-LAST:event_comboSalaryActionPerformed
         public void clearForm(){
         
     }
