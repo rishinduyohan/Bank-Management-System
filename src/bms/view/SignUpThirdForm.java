@@ -62,9 +62,12 @@ public class SignUpThirdForm extends javax.swing.JFrame {
         checkEmail = new javax.swing.JCheckBox();
         checkBook = new javax.swing.JCheckBox();
         checkStatement = new javax.swing.JCheckBox();
+        checkBook1 = new javax.swing.JCheckBox();
 
-        buttonGroup1.add(radioYes);
-        buttonGroup1.add(radioNo);
+        buttonGroup1.add(radioSaving);
+        buttonGroup1.add(radioCurrent);
+        buttonGroup1.add(radioFixed);
+        buttonGroup1.add(radioRecurring);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -123,12 +126,15 @@ public class SignUpThirdForm extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 18)); // NOI18N
         jLabel6.setText("Account Type");
 
+        buttonGroup1.add(radioSaving);
         radioSaving.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         radioSaving.setText("Saving Account");
 
+        buttonGroup1.add(radioCurrent);
         radioCurrent.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         radioCurrent.setText("Current Account");
 
+        buttonGroup1.add(radioFixed);
         radioFixed.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         radioFixed.setText("Fixed Deposit Acc");
         radioFixed.addActionListener(new java.awt.event.ActionListener() {
@@ -137,6 +143,7 @@ public class SignUpThirdForm extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(radioRecurring);
         radioRecurring.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         radioRecurring.setText("Recurring Deposite Acc");
         radioRecurring.addActionListener(new java.awt.event.ActionListener() {
@@ -184,6 +191,9 @@ public class SignUpThirdForm extends javax.swing.JFrame {
         checkStatement.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         checkStatement.setText("E - Statement");
 
+        checkBook1.setForeground(new java.awt.Color(0, 51, 204));
+        checkBook1.setText("I hereby decleares that the above details are correct to the best of my knowledge");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -224,7 +234,8 @@ public class SignUpThirdForm extends javax.swing.JFrame {
                                 .addComponent(checkAtm, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(checkMobile, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(checkBook, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(checkBook, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(checkBook1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(15, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -288,7 +299,9 @@ public class SignUpThirdForm extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(checkBook)
                     .addComponent(checkStatement))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
+                .addGap(18, 27, Short.MAX_VALUE)
+                .addComponent(checkBook1)
+                .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -356,6 +369,7 @@ public class SignUpThirdForm extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JCheckBox checkAtm;
     private javax.swing.JCheckBox checkBook;
+    private javax.swing.JCheckBox checkBook1;
     private javax.swing.JCheckBox checkEmail;
     private javax.swing.JCheckBox checkInternet;
     private javax.swing.JCheckBox checkMobile;

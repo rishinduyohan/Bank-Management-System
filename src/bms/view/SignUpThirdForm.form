@@ -4,7 +4,7 @@
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="buttonGroup1">
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="buttonGroup1.add(radioYes);&#xa;buttonGroup1.add(radioNo);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="buttonGroup1.add(radioSaving);&#xa;buttonGroup1.add(radioCurrent);&#xa;buttonGroup1.add(radioFixed);&#xa;buttonGroup1.add(radioRecurring);"/>
       </AuxValues>
     </Component>
   </NonVisualComponents>
@@ -74,6 +74,7 @@
                               <Component id="checkMobile" alignment="1" min="-2" pref="143" max="-2" attributes="0"/>
                               <Component id="checkBook" alignment="1" min="-2" pref="143" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="checkBook1" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -157,7 +158,9 @@
                   <Component id="checkBook" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="checkStatement" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="112" max="32767" attributes="0"/>
+              <EmptySpace type="separate" pref="27" max="32767" attributes="0"/>
+              <Component id="checkBook1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="btnCancel" min="-2" pref="33" max="-2" attributes="0"/>
                   <Component id="btnNext" min="-2" pref="33" max="-2" attributes="0"/>
@@ -240,6 +243,9 @@
     </Component>
     <Component class="javax.swing.JRadioButton" name="radioSaving">
       <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="buttonGroup1"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
@@ -248,6 +254,9 @@
     </Component>
     <Component class="javax.swing.JRadioButton" name="radioCurrent">
       <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="buttonGroup1"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
@@ -256,6 +265,9 @@
     </Component>
     <Component class="javax.swing.JRadioButton" name="radioFixed">
       <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="buttonGroup1"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
@@ -267,6 +279,9 @@
     </Component>
     <Component class="javax.swing.JRadioButton" name="radioRecurring">
       <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="buttonGroup1"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
@@ -378,6 +393,14 @@
           <Font name="Segoe UI" size="14" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="E - Statement"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="checkBook1">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="cc" green="33" red="0" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="I hereby decleares that the above details are correct to the best of my knowledge"/>
       </Properties>
     </Component>
   </SubComponents>
