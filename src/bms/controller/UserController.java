@@ -4,6 +4,7 @@
  */
 package bms.controller;
 import bms.DBConnection.DBConnection;
+import bms.model.Account;
 import java.sql.*;
 import bms.model.User;
 
@@ -22,6 +23,16 @@ public class UserController {
         stm.setObject(9, user.getState());
         stm.setObject(10, user.getPhone());
         stm.setObject(11, user.getNic());
+        int res = stm.executeUpdate();
+        return res>0;
+    }
+    public static boolean addAccount(Account account) throws ClassNotFoundException, SQLException{
+        String SQL = "Insert into accountdetails values (?,?,?,?)";
+        PreparedStatement stm = DBConnection.getInstance().getConnection().prepareStatement(SQL);
+        stm.setObject(1, account.getAccType());
+        stm.setObject(2, account.getCardNumber());
+        stm.setObject(3, account.getPin());
+        stm.setObject(4, account.getServices());
         int res = stm.executeUpdate();
         return res>0;
     }

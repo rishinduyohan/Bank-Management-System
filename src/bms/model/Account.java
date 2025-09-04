@@ -5,18 +5,27 @@
 package bms.model;
 
 public class Account {
+    private String nic;
     private String accType;
     private String cardNumber;
     private int pin;
     private String services;
 
-    public Account(String accType, String cardNumber, int pin, String services) {
+    public Account(String accType, String cardNumber, int pin, String services, String nic) {
         this.accType = accType;
         this.cardNumber = cardNumber;
         this.pin = pin;
         this.services = services;
+        this.nic = nic;
+    }
+    
+    public String getNic() {
+        return nic;
     }
 
+    public void setNic(String nic) {
+        this.nic = nic;
+    }
     /**
      * @return the accType
      */
