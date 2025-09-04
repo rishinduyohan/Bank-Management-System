@@ -292,13 +292,11 @@ public class SignUpSecForm extends javax.swing.JFrame {
             boolean isAdded = res>0;
             if(isAdded){
                 JOptionPane.showMessageDialog(this, "Details Added to the system!");
-                clearForm();
             }else{
                 JOptionPane.showMessageDialog(this, "Details did't add to the system!");
             }
         } catch (ClassNotFoundException | SQLException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage());
-            clearForm();
         }
     }//GEN-LAST:event_btnNextActionPerformed
 
@@ -396,13 +394,6 @@ public class SignUpSecForm extends javax.swing.JFrame {
         }
         return ExAcc;
     }
-    public void clearForm(){
-        
-    }
-    /**
-     * @param args the command line arguments
-     */
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnNext;
