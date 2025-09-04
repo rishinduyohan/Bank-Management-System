@@ -4,10 +4,11 @@
  */
 package bms.view;
 
+import bms.DBConnection.DBConnection;
 import bms.controller.UserController;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
-
+import java.sql.*;
 /**
  *
  * @author acer
@@ -283,16 +284,17 @@ public class SignUpSecForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-
-//        User user = new User(name, fname, dob, gender, email, status, address, city, state, pno, nic);
-        
+       
         try {
-            boolean isAdded = UserController.addUser(user);
+            String SQL = "Insert into userAdditionalDetails values ('"+nic+"','"+religion+"','"+categ+"','"+income+"','"+edu+"','"+occu+"','"+ExAcc+"',)";
+            Statement stm = DBConnection.getInstance().getConnection().createStatement();
+            int res = stm.executeUpdate(SQL);
+            boolean isAdded = res>0;
             if(isAdded){
-                JOptionPane.showMessageDialog(this, "User Added Success!");
+                JOptionPane.showMessageDialog(this, "Details Added to the system!");
                 clearForm();
             }else{
-                JOptionPane.showMessageDialog(this, "User Added Failed!");
+                JOptionPane.showMessageDialog(this, "Details did't add to the system!");
             }
         } catch (ClassNotFoundException | SQLException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage());

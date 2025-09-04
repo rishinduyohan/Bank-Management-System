@@ -359,7 +359,6 @@ public class SignUpForm extends javax.swing.JFrame {
         try {
             boolean isAdded = UserController.addUser(user);
             if(isAdded){
-                JOptionPane.showMessageDialog(this, "User Added Success!");
                 clearForm();
                 new SignUpSecForm(random,nic).setVisible(true);
             }else{
