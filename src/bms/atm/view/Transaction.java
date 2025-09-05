@@ -4,6 +4,8 @@
  */
 package bms.atm.view;
 
+import bms.view.Login;
+
 /**
  *
  * @author acer
@@ -33,7 +35,9 @@ public class Transaction extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        btnExit = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -80,11 +84,29 @@ public class Transaction extends javax.swing.JFrame {
         jButton6.setText("Mini Statement");
         getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 460, 100, -1));
 
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Bahnschrift", 0, 50)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 0));
+        jLabel3.setText("Bank of Sri Lanka");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 430, -1));
+
         jLabel2.setIcon(new javax.swing.ImageIcon("D:\\Netbeans Projects\\Bank-Management-System\\Images\\dgsrsdfgr.jpg")); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 672, 60, 10));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        dispose();
+        new Login().setVisible(true);
+    }//GEN-LAST:event_btnExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -122,6 +144,7 @@ public class Transaction extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton btnExit;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -130,5 +153,6 @@ public class Transaction extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }
