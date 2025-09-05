@@ -385,7 +385,7 @@ public class SignUpThirdForm extends javax.swing.JFrame {
             services += "Email & SMS Alert, ";
         }
         if(checkEmail.isSelected()){
-            services += "E - Statement, ";
+            services += "E - Statement ";
         }  
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
