@@ -7,6 +7,7 @@ package bms.view;
 import bms.controller.AccountController;
 import bms.model.Account;
 import java.sql.SQLException;
+import java.util.Random;
 import javax.swing.JOptionPane;
 /**
  *
@@ -17,6 +18,9 @@ public class SignUpThirdForm extends javax.swing.JFrame {
     private String nic;
     private String account;
     private String services;
+    private String cardNumber;
+    private int pinNumber;
+    private Random card = new Random();
    
     /**
      * Creates new form SignUpForm
@@ -24,6 +28,10 @@ public class SignUpThirdForm extends javax.swing.JFrame {
     public SignUpThirdForm(long random,String nic) {
         this.nic = nic;
         this.random = random;
+        long cardPrefix = 5040930000000000L; 
+        long cardSuffix = Math.abs(card.nextLong() % 1000000L); 
+        cardNumber = String.format("%016d", cardPrefix + cardSuffix);
+        pinNumber = card.nextInt(9000) + 1000; 
         initComponents();
     }
 
@@ -167,6 +175,15 @@ public class SignUpThirdForm extends javax.swing.JFrame {
 
         lblCardNumber.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 18)); // NOI18N
         lblCardNumber.setText("XXXX-XXXX-XXXX-6589");
+        lblCardNumber.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                lblCardNumberAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 18)); // NOI18N
         jLabel9.setText("PIN");
@@ -176,6 +193,15 @@ public class SignUpThirdForm extends javax.swing.JFrame {
 
         lblPin.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 18)); // NOI18N
         lblPin.setText("XXXX");
+        lblPin.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                lblPinAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
 
         jLabel11.setFont(new java.awt.Font("MS Reference Sans Serif", 1, 18)); // NOI18N
         jLabel11.setText("Service Requried");
@@ -368,6 +394,14 @@ public class SignUpThirdForm extends javax.swing.JFrame {
     private void radioCurrentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioCurrentActionPerformed
         account = "Current Account";
     }//GEN-LAST:event_radioCurrentActionPerformed
+
+    private void lblCardNumberAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_lblCardNumberAncestorAdded
+       lblCardNumber.setText(cardNumber);
+    }//GEN-LAST:event_lblCardNumberAncestorAdded
+
+    private void lblPinAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_lblPinAncestorAdded
+        lblPin.setText(String.valueOf(pinNumber));
+    }//GEN-LAST:event_lblPinAncestorAdded
     private void getServices(){
         if(checkAtm.isSelected()){
            services += "ATM Card, ";
@@ -387,6 +421,11 @@ public class SignUpThirdForm extends javax.swing.JFrame {
         if(checkEmail.isSelected()){
             services += "E - Statement ";
         }  
+    }
+    public static void main(String args[]) {
+        Random r = new Random();
+        long random = 5355 ;
+        new SignUpThirdForm(random, "205458156178").setVisible(true);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
