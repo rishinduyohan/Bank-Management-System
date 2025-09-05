@@ -351,6 +351,7 @@ public class SignUpThirdForm extends javax.swing.JFrame {
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         dispose();
+        new Login().setVisible(true);
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
@@ -363,12 +364,14 @@ public class SignUpThirdForm extends javax.swing.JFrame {
             boolean isAdded = AccountController.addAccount(newAcc);
             if(isAdded){
                 JOptionPane.showMessageDialog(this, "Details Added to the system!");
+                dispose();
             }else{
                 JOptionPane.showMessageDialog(this, "Details did't add to the system!");
             }
         } catch (ClassNotFoundException | SQLException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage());
         }
+        new Login().setVisible(true);
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void lblRandomInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_lblRandomInputMethodTextChanged
