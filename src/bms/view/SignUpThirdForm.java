@@ -17,7 +17,7 @@ public class SignUpThirdForm extends javax.swing.JFrame {
     private long random;
     private String nic;
     private String account;
-    private String services;
+    private String services="";
     private String cardNumber;
     private int pinNumber;
     private Random card = new Random();
@@ -354,11 +354,11 @@ public class SignUpThirdForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-        String card = lblCardNumber.getText();
+        String cardNum = lblCardNumber.getText();
         int pin =  Integer.parseInt(lblPin.getText());
         getServices();
         
-        Account newAcc = new Account(nic,account, card, pin, services);
+        Account newAcc = new Account(nic,account, cardNum, pin, services);
         try {
             boolean isAdded = AccountController.addAccount(newAcc);
             if(isAdded){
@@ -421,11 +421,6 @@ public class SignUpThirdForm extends javax.swing.JFrame {
         if(checkEmail.isSelected()){
             services += "E - Statement ";
         }  
-    }
-    public static void main(String args[]) {
-        Random r = new Random();
-        long random = 5355 ;
-        new SignUpThirdForm(random, "205458156178").setVisible(true);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
