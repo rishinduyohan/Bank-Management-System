@@ -95,7 +95,7 @@ public class SignUpSecForm extends javax.swing.JFrame {
         btnNext.setBackground(new java.awt.Color(51, 153, 0));
         btnNext.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnNext.setForeground(new java.awt.Color(255, 255, 255));
-        btnNext.setText("Finish");
+        btnNext.setText("Next");
         btnNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNextActionPerformed(evt);
@@ -305,6 +305,7 @@ public class SignUpSecForm extends javax.swing.JFrame {
         } catch (ClassNotFoundException | SQLException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage());
         }
+        new SignUpThirdForm(random, nic).setVisible(true);
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void lblRandomInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_lblRandomInputMethodTextChanged
