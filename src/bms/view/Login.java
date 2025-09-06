@@ -8,8 +8,6 @@ import bms.atm.view.Transaction;
 import bms.controller.AccountController;
 import bms.model.Account;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -165,7 +163,7 @@ public class Login extends javax.swing.JFrame {
             Account getAcc = AccountController.getAccount(card, pin);
             if(getAcc!=null){
                 dispose();
-                new Transaction().setVisible(true);
+                new Transaction(pin).setVisible(true);
             }else{
                 JOptionPane.showMessageDialog(this, "Invalid card number or pin! Please check again.");
                 txtCardNumber.setText("");
