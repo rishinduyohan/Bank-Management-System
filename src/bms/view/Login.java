@@ -4,6 +4,12 @@
  */
 package bms.view;
 
+import bms.atm.view.Transaction;
+import bms.controller.AccountController;
+import bms.model.Account;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author acer
@@ -14,6 +20,7 @@ public class Login extends javax.swing.JFrame {
      * Creates new form Login
      */
     public Login() {
+        
         initComponents();
     }
 
@@ -41,6 +48,15 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 0, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Welcome to ATM");
+        jLabel1.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jLabel1AncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setText("Card Number :");
@@ -52,6 +68,11 @@ public class Login extends javax.swing.JFrame {
         btnSignIn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSignIn.setForeground(new java.awt.Color(255, 255, 255));
         btnSignIn.setText("Sign In");
+        btnSignIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSignInActionPerformed(evt);
+            }
+        });
 
         btnSignUp.setBackground(new java.awt.Color(0, 102, 102));
         btnSignUp.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -122,6 +143,7 @@ public class Login extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -133,6 +155,28 @@ public class Login extends javax.swing.JFrame {
         dispose();
         new SignUpForm().setVisible(true);
     }//GEN-LAST:event_btnSignUpActionPerformed
+
+    private void btnSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignInActionPerformed
+        String card = txtCardNumber.getText();
+        int pin = Integer.parseInt(txtPinNumber.getText());
+        try {
+            Account getAcc = AccountController.getAccount(card, pin);
+            if(getAcc!=null){
+                dispose();
+                new Transaction(pin).setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(this, "Invalid card number or pin! Please check again.");
+                txtCardNumber.setText("");
+                txtPinNumber.setText("");
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
+    }//GEN-LAST:event_btnSignInActionPerformed
+
+    private void jLabel1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel1AncestorAdded
+       JOptionPane.showMessageDialog(this, "Please Enter your Card to ATM!");
+    }//GEN-LAST:event_jLabel1AncestorAdded
 
     /**
      * @param args the command line arguments
