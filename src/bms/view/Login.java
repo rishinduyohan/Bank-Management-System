@@ -4,6 +4,14 @@
  */
 package bms.view;
 
+import bms.atm.view.Transaction;
+import bms.controller.AccountController;
+import bms.model.Account;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author acer
@@ -52,6 +60,11 @@ public class Login extends javax.swing.JFrame {
         btnSignIn.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnSignIn.setForeground(new java.awt.Color(255, 255, 255));
         btnSignIn.setText("Sign In");
+        btnSignIn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSignInActionPerformed(evt);
+            }
+        });
 
         btnSignUp.setBackground(new java.awt.Color(0, 102, 102));
         btnSignUp.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -133,6 +146,22 @@ public class Login extends javax.swing.JFrame {
         dispose();
         new SignUpForm().setVisible(true);
     }//GEN-LAST:event_btnSignUpActionPerformed
+
+    private void btnSignInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignInActionPerformed
+        String card = txtCardNumber.getText();
+        int pin = Integer.parseInt(txtPinNumber.getText());
+        try {
+            Account getAcc = AccountController.getAccount(card, pin);
+            if(getAcc!=null){
+                dispose();
+                new Transaction().setVisible(true);
+            }else{
+                JOptionPane.showMessageDialog(this, "Invalid card number or pin! Please check again.");
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
+    }//GEN-LAST:event_btnSignInActionPerformed
 
     /**
      * @param args the command line arguments
