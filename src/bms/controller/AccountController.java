@@ -32,7 +32,7 @@ public class AccountController {
         ResultSet res = stm.executeQuery(SQL);
         if(res.next()){
             String nic = res.getString("nic");
-            String accType = res.getString("accType");
+            String accType = res.getString("accountType");
             String Services  = res.getString("services");
             return new Account(nic, accType, cardnumber, pin, Services);
         }
