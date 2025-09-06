@@ -4,14 +4,13 @@
  */
 package bms.atm.view;
 
-import bms.view.Login;
 
 /**
  *
  * @author acer
  */
 public class Deposite extends javax.swing.JFrame {
-    private int value;
+    private double value;
     
     public Deposite() {
         initComponents();
