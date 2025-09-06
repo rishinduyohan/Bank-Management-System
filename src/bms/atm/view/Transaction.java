@@ -17,8 +17,6 @@ public class Transaction extends javax.swing.JFrame {
      */
     public Transaction(int pin) {
         this.pin = pin;
-        initComponents();
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -76,7 +74,6 @@ public class Transaction extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 430, 100, -1));
 
         jButton5.setBackground(new java.awt.Color(51, 51, 255));
         jButton5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -108,7 +105,6 @@ public class Transaction extends javax.swing.JFrame {
 
         pack();
         setLocationRelativeTo(null);
-    }// </editor-fold>//GEN-END:initComponents
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         dispose();
@@ -119,7 +115,6 @@ public class Transaction extends javax.swing.JFrame {
         dispose();
         new Deposite(pin).setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnExit;
