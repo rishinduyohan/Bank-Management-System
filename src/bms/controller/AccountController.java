@@ -8,6 +8,7 @@ import bms.DBConnection.DBConnection;
 import bms.model.Account;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.*;
 
 /**
  *
@@ -24,5 +25,17 @@ public class AccountController {
         stm.setObject(5, account.getServices());
         int res = stm.executeUpdate();
         return res>0;
+    }
+    public static Account getAccount(String cardnumber,int pin) throws ClassNotFoundException, SQLException{
+        String SQL = "Select * from accountdetails where cardnumber='"+cardnumber+"' and pin='"+pin+"'";
+        Statement stm = DBConnection.getInstance().getConnection().createStatement();
+        ResultSet res = stm.executeQuery(SQL);
+        if(res.next()){
+            String nic = res.getString("nic");
+            String accType = res.getString("accountType");
+            String Services  = res.getString("services");
+            return new Account(nic, accType, cardnumber, pin, Services);
+        }
+        return null;
     }
 }
