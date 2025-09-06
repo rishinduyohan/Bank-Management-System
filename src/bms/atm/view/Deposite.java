@@ -11,10 +11,8 @@ import bms.view.Login;
  * @author acer
  */
 public class Deposite extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Transaction
-     */
+    private int value;
+    
     public Deposite() {
         initComponents();
     }
@@ -53,6 +51,11 @@ public class Deposite extends javax.swing.JFrame {
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Deposit");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 500, 100, -1));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -63,9 +66,19 @@ public class Deposite extends javax.swing.JFrame {
         getContentPane().add(txtAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, 220, -1));
 
         btn20000.setText("20000");
+        btn20000.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn20000ActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn20000, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 450, -1, -1));
 
         btn1000.setText("1000");
+        btn1000.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn1000ActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn1000, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 420, -1, -1));
 
         btn2000.setText("2000");
@@ -77,9 +90,19 @@ public class Deposite extends javax.swing.JFrame {
         getContentPane().add(btn2000, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 450, -1, -1));
 
         btn5000.setText("5000");
+        btn5000.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn5000ActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn5000, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 480, -1, -1));
 
         btn10000.setText("10000");
+        btn10000.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn10000ActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn10000, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 420, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon("D:\\Netbeans Projects\\Bank-Management-System\\Images\\dgsrsdfgr.jpg")); // NOI18N
@@ -93,16 +116,42 @@ public class Deposite extends javax.swing.JFrame {
         getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 672, 60, 10));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        dispose();
-        new Login().setVisible(true);
+        txtAmount.setText("");
+        value=0;
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btn2000ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2000ActionPerformed
-        
+        value+=2000;
+        txtAmount.setText(value+"");
     }//GEN-LAST:event_btn2000ActionPerformed
+
+    private void btn1000ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1000ActionPerformed
+        value+=1000;
+        txtAmount.setText(value+"");
+    }//GEN-LAST:event_btn1000ActionPerformed
+
+    private void btn5000ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5000ActionPerformed
+        value+=5000;
+        txtAmount.setText(value+"");
+    }//GEN-LAST:event_btn5000ActionPerformed
+
+    private void btn10000ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn10000ActionPerformed
+        value+=10000;
+        txtAmount.setText(value+"");
+    }//GEN-LAST:event_btn10000ActionPerformed
+
+    private void btn20000ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn20000ActionPerformed
+        value+=20000;
+        txtAmount.setText(value+"");
+    }//GEN-LAST:event_btn20000ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
