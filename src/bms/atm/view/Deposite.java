@@ -170,9 +170,14 @@ public class Deposite extends javax.swing.JFrame {
         try {
             boolean isAdded = TransactionController.depositAmount(deposite);
             if(isAdded){
-                JOptionPane.showMessageDialog(this, "Rs. '"+amount+"' Deposit Successfull !");
-                txtAmount.setText("");
-                
+                int choice = JOptionPane.showConfirmDialog(null, "Rs. '"+amount+"' Deposit Successfull! Do you want to Deposit More?", "Deposit Success", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+                if(choice == JOptionPane.YES_OPTION){
+                   txtAmount.setText("");
+                   value = 0;
+                }else{
+                    dispose();
+                    new Transaction(pin).setVisible(true);
+                }  
             }else{
                 JOptionPane.showMessageDialog(this, " Your Deposit Unsuccessfull!");
                 txtAmount.setText("");
