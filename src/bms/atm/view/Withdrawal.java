@@ -16,7 +16,6 @@ import javax.swing.JOptionPane;
  * @author acer
  */
 public class Withdrawal extends javax.swing.JFrame {
-
     private double value;
     private int pin;
     private ArrayList<Transactions> getAllAmount;
@@ -180,17 +179,19 @@ public class Withdrawal extends javax.swing.JFrame {
             try {
                 double total = getTotal();
                 if (amount > total) {
-                    JOptionPane.showMessageDialog(this, "Your Total balance is less than your withrawal!");
+                    JOptionPane.showMessageDialog(this, "Your Total balance is "+total+"!");
                     txtAmount.setText("");
                     value = 0;
                 } else {
                     boolean isAdded = TransactionController.depositAmount(withdraw);
                     if (isAdded) {
-                        int choice = JOptionPane.showConfirmDialog(null, "Rs. '" + amount + "' Withdrawal Successfull! Do you want to Withdraw More?", "Withdraw Success", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+                        int choice = JOptionPane.showConfirmDialog(null, "Rs. " + amount + " Withdrawal Successfull! Do you want to Withdraw More?", "Withdrawal Success", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
                         if (choice == JOptionPane.YES_OPTION) {
+                            
                             txtAmount.setText("");
                             value = 0;
                         } else {
+                            
                             dispose();
                             new Transaction(pin).setVisible(true);
                         }
@@ -206,12 +207,12 @@ public class Withdrawal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnWithdrawActionPerformed
     private double getTotal() throws ClassNotFoundException, SQLException {
         getAllAmount = TransactionController.getAllAmount(pin);
-        double total = 0;
+        double totalAmount = 0;
         for (int i = 0; i < getAllAmount.size(); i++) {
-            total += getAllAmount.get(i).getAmount();
+            totalAmount += getAllAmount.get(i).getAmount();
         }
-        System.out.print(total);
-        return total;
+        System.out.println(totalAmount);
+        return totalAmount;
 
     }
     private void txtAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAmountActionPerformed

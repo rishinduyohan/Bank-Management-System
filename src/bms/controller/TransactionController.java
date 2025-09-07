@@ -24,7 +24,7 @@ public class TransactionController {
         return res>0;
     }
     public static ArrayList<Transactions>getAllAmount(int pin) throws ClassNotFoundException, SQLException{
-        String SQL = "Select * from Transactiondetails where pin = '"+pin+"'";
+        String SQL = "Select * from Transactiondetails where type = 'deposit' and pin = '"+pin+"'";
         ArrayList<Transactions>toArray = new ArrayList<>();
         Statement stm = DBConnection.getInstance().getConnection().createStatement();
         ResultSet rst = stm.executeQuery(SQL);
