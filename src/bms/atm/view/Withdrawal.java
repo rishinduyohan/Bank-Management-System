@@ -7,6 +7,7 @@ package bms.atm.view;
 import bms.controller.TransactionController;
 import bms.model.Transactions;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
 
@@ -18,6 +19,7 @@ public class Withdrawal extends javax.swing.JFrame {
 
     private double value;
     private int pin;
+    private ArrayList<Transactions> getAllAmount;
 
     public Withdrawal(int pin) {
         this.pin = pin;
@@ -169,37 +171,52 @@ public class Withdrawal extends javax.swing.JFrame {
     }//GEN-LAST:event_btn20000ActionPerformed
 
     private void btnWithdrawActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWithdrawActionPerformed
-
         if ("".equals(txtAmount.getText())) {
-            JOptionPane.showMessageDialog(this, "Please Enter the amount you want to deposit");
+            JOptionPane.showMessageDialog(this, "Please Enter the amount you want to withdraw");
         } else {
             double amount = Double.parseDouble(txtAmount.getText());
             Date date = new Date();
-            Transactions deposite = new Transactions(pin, date, "deposit", amount);
+            Transactions withdraw = new Transactions(pin, date, "withdraw", amount);
             try {
-                boolean isAdded = TransactionController.depositAmount(deposite);
-                if (isAdded) {
-                    int choice = JOptionPane.showConfirmDialog(null, "Rs. '" + amount + "' Deposit Successfull! Do you want to Deposit More?", "Deposit Success", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
-                    if (choice == JOptionPane.YES_OPTION) {
-                        txtAmount.setText("");
-                        value = 0;
-                    } else {
-                        dispose();
-                        new Transaction(pin).setVisible(true);
-                    }
-                } else {
-                    JOptionPane.showMessageDialog(this, "Your Deposit Unsuccessfull!");
+                double total = getTotal();
+                if (amount > total) {
+                    JOptionPane.showMessageDialog(this, "Your Total balance is less than your withrawal!");
                     txtAmount.setText("");
+                    value = 0;
+                } else {
+                    boolean isAdded = TransactionController.depositAmount(withdraw);
+                    if (isAdded) {
+                        int choice = JOptionPane.showConfirmDialog(null, "Rs. '" + amount + "' Withdrawal Successfull! Do you want to Withdraw More?", "Withdraw Success", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+                        if (choice == JOptionPane.YES_OPTION) {
+                            txtAmount.setText("");
+                            value = 0;
+                        } else {
+                            dispose();
+                            new Transaction(pin).setVisible(true);
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Your Withdrawal Unsuccessfull!");
+                        txtAmount.setText("");
+                    }
                 }
             } catch (ClassNotFoundException | SQLException ex) {
                 JOptionPane.showMessageDialog(this, ex.getMessage());
             }
         }
     }//GEN-LAST:event_btnWithdrawActionPerformed
+    private double getTotal() throws ClassNotFoundException, SQLException {
+        getAllAmount = TransactionController.getAllAmount(pin);
+        double total = 0;
+        for (int i = 0; i < getAllAmount.size(); i++) {
+            total += getAllAmount.get(i).getAmount();
+        }
+        System.out.print(total);
+        return total;
 
+    }
     private void txtAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAmountActionPerformed
         if ("".equals(txtAmount.getText())) {
-            JOptionPane.showMessageDialog(this, "Please Enter the amount you want to deposit");
+            JOptionPane.showMessageDialog(this, "Please Enter the amount you want to Withdraw");
         } else {
             btnWithdrawActionPerformed(evt);
         }
