@@ -201,7 +201,7 @@ public class Withdrawal extends javax.swing.JFrame {
         if ("".equals(txtAmount.getText())) {
             JOptionPane.showMessageDialog(this, "Please Enter the amount you want to deposit");
         } else {
-            btnDepositActionPerformed(evt);
+            btnWithdrawActionPerformed(evt);
         }
     }//GEN-LAST:event_txtAmountActionPerformed
 

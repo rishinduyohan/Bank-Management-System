@@ -7,6 +7,7 @@ package bms.controller;
 import bms.DBConnection.DBConnection;
 import bms.model.Transactions;
 import java.sql.*;
+import java.util.ArrayList;
 /**
  *
  * @author acer
@@ -21,5 +22,15 @@ public class TransactionController {
         stm.setObject(4, deposit.getAmount());
         int res = stm.executeUpdate();
         return res>0;
+    }
+    public static ArrayList<Transactions>getAllAmount(int pin) throws ClassNotFoundException, SQLException{
+        String SQL = "Select * from Transactiondetails where pin = '"+pin+"'";
+        ArrayList<Transactions>toArray = new ArrayList<>();
+        Statement stm = DBConnection.getInstance().getConnection().createStatement();
+        ResultSet rst = stm.executeQuery(SQL);
+        while(rst.next()){
+            toArray.add(new Transactions(rst.getInt("pin"), rst.getDate("date"), rst.getString("type"), rst.getDouble("amount")));
+        }
+        return toArray;
     }
 }
