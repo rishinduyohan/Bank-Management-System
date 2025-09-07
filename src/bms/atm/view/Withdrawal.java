@@ -14,12 +14,12 @@ import javax.swing.JOptionPane;
  *
  * @author acer
  */
-public class Deposit extends javax.swing.JFrame {
+public class Withdrawal extends javax.swing.JFrame {
 
     private double value;
     private int pin;
 
-    public Deposit(int pin) {
+    public Withdrawal(int pin) {
         this.pin = pin;
         initComponents();
     }
@@ -34,7 +34,7 @@ public class Deposit extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        btnDeposit = new javax.swing.JButton();
+        btnWithdraw = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         txtAmount = new javax.swing.JTextField();
         btn20000 = new javax.swing.JButton();
@@ -52,19 +52,19 @@ public class Deposit extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel1.setText("Enter the amount you want to deposit");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, 220, 30));
+        jLabel1.setText("Enter the amount you want to withdraw");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, 230, 30));
 
-        btnDeposit.setBackground(new java.awt.Color(51, 51, 255));
-        btnDeposit.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnDeposit.setForeground(new java.awt.Color(255, 255, 255));
-        btnDeposit.setText("Deposit");
-        btnDeposit.addActionListener(new java.awt.event.ActionListener() {
+        btnWithdraw.setBackground(new java.awt.Color(51, 51, 255));
+        btnWithdraw.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnWithdraw.setForeground(new java.awt.Color(255, 255, 255));
+        btnWithdraw.setText("Withdraw");
+        btnWithdraw.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDepositActionPerformed(evt);
+                btnWithdrawActionPerformed(evt);
             }
         });
-        getContentPane().add(btnDeposit, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 500, 100, -1));
+        getContentPane().add(btnWithdraw, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 500, 100, -1));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Bahnschrift", 0, 50)); // NOI18N
@@ -168,7 +168,7 @@ public class Deposit extends javax.swing.JFrame {
         txtAmount.setText(value + "");
     }//GEN-LAST:event_btn20000ActionPerformed
 
-    private void btnDepositActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepositActionPerformed
+    private void btnWithdrawActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWithdrawActionPerformed
 
         if ("".equals(txtAmount.getText())) {
             JOptionPane.showMessageDialog(this, "Please Enter the amount you want to deposit");
@@ -195,7 +195,7 @@ public class Deposit extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, ex.getMessage());
             }
         }
-    }//GEN-LAST:event_btnDepositActionPerformed
+    }//GEN-LAST:event_btnWithdrawActionPerformed
 
     private void txtAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAmountActionPerformed
         if ("".equals(txtAmount.getText())) {
@@ -212,8 +212,8 @@ public class Deposit extends javax.swing.JFrame {
     private javax.swing.JButton btn2000;
     private javax.swing.JButton btn20000;
     private javax.swing.JButton btn5000;
-    private javax.swing.JButton btnDeposit;
     private javax.swing.JToggleButton btnExit;
+    private javax.swing.JButton btnWithdraw;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
