@@ -117,7 +117,7 @@ public class Transaction extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         dispose();
-        new Deposite(pin).setVisible(true);
+        new Deposit(pin).setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
 

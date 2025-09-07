@@ -10,16 +10,16 @@ import java.sql.SQLException;
 import java.util.Date;
 import javax.swing.JOptionPane;
 
-
 /**
  *
  * @author acer
  */
-public class Deposite extends javax.swing.JFrame {
+public class Deposit extends javax.swing.JFrame {
+
     private double value;
     private int pin;
-    
-    public Deposite(int pin) {
+
+    public Deposit(int pin) {
         this.pin = pin;
         initComponents();
     }
@@ -71,6 +71,12 @@ public class Deposite extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 0));
         jLabel3.setText("Bank of Sri Lanka");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 430, -1));
+
+        txtAmount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAmountActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, 200, -1));
 
         btn20000.setText("20000");
@@ -134,58 +140,70 @@ public class Deposite extends javax.swing.JFrame {
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         txtAmount.setText("");
-        value=0;
+        value = 0;
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btn2000ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2000ActionPerformed
-        value+=2000;
-        txtAmount.setText(value+"");
+        value += 2000;
+        txtAmount.setText(value + "");
     }//GEN-LAST:event_btn2000ActionPerformed
 
     private void btn1000ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1000ActionPerformed
-        value+=1000;
-        txtAmount.setText(value+"");
+        value += 1000;
+        txtAmount.setText(value + "");
     }//GEN-LAST:event_btn1000ActionPerformed
 
     private void btn5000ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5000ActionPerformed
-        value+=5000;
-        txtAmount.setText(value+"");
+        value += 5000;
+        txtAmount.setText(value + "");
     }//GEN-LAST:event_btn5000ActionPerformed
 
     private void btn10000ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn10000ActionPerformed
-        value+=10000;
-        txtAmount.setText(value+"");
+        value += 10000;
+        txtAmount.setText(value + "");
     }//GEN-LAST:event_btn10000ActionPerformed
 
     private void btn20000ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn20000ActionPerformed
-        value+=20000;
-        txtAmount.setText(value+"");
+        value += 20000;
+        txtAmount.setText(value + "");
     }//GEN-LAST:event_btn20000ActionPerformed
 
     private void btnDepositActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepositActionPerformed
-        double amount = Double.parseDouble(txtAmount.getText());
-        Date date = new Date();
-        Transactions deposite = new Transactions(pin, date, "deposit", amount);
-        
-        try {
-            boolean isAdded = TransactionController.depositAmount(deposite);
-            if(isAdded){
-                int choice = JOptionPane.showConfirmDialog(null, "Rs. '"+amount+"' Deposit Successfull! Do you want to Deposit More?", "Deposit Success", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
-                if(choice == JOptionPane.YES_OPTION){
-                   txtAmount.setText("");
-                   value = 0;
-                }else{
-                    dispose();
-                    new Transaction(pin).setVisible(true);
-                }  
-            }else{
-                JOptionPane.showMessageDialog(this, " Your Deposit Unsuccessfull!");
-                txtAmount.setText("");
+
+        if ("".equals(txtAmount.getText())) {
+            JOptionPane.showMessageDialog(this, "Please Enter the amount you want to deposit");
+        } else {
+            double amount = Double.parseDouble(txtAmount.getText());
+            Date date = new Date();
+            Transactions deposite = new Transactions(pin, date, "deposit", amount);
+            try {
+                boolean isAdded = TransactionController.depositAmount(deposite);
+                if (isAdded) {
+                    int choice = JOptionPane.showConfirmDialog(null, "Rs. '" + amount + "' Deposit Successfull! Do you want to Deposit More?", "Deposit Success", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+                    if (choice == JOptionPane.YES_OPTION) {
+                        txtAmount.setText("");
+                        value = 0;
+                    } else {
+                        dispose();
+                        new Transaction(pin).setVisible(true);
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Your Deposit Unsuccessfull!");
+                    txtAmount.setText("");
+                }
+            } catch (ClassNotFoundException | SQLException ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage());
             }
-        } catch (ClassNotFoundException | SQLException ex) {
-            JOptionPane.showMessageDialog(this, ex.getMessage());
         }
     }//GEN-LAST:event_btnDepositActionPerformed
+
+    private void txtAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAmountActionPerformed
+        if ("".equals(txtAmount.getText())) {
+            JOptionPane.showMessageDialog(this, "Please Enter the amount you want to deposit");
+        } else {
+            btnDepositActionPerformed(evt);
+        }
+    }//GEN-LAST:event_txtAmountActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
