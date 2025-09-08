@@ -128,7 +128,10 @@ public class Transaction extends javax.swing.JFrame {
         dispose();
         new Withdrawal(pin).setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
-
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        dispose();
+        new FastCash(pin).setVisible(true);
+    }        
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnExit;
     private javax.swing.JButton jButton1;
