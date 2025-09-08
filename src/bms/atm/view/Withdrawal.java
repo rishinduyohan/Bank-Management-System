@@ -19,6 +19,7 @@ public class Withdrawal extends javax.swing.JFrame {
     private double value;
     private int pin;
     private ArrayList<Transactions> getAllAmount;
+    private double balance;
 
     public Withdrawal(int pin) {
         this.pin = pin;
@@ -126,6 +127,15 @@ public class Withdrawal extends javax.swing.JFrame {
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon("D:\\Netbeans Projects\\Bank-Management-System\\Images\\dgsrsdfgr.jpg")); // NOI18N
+        jLabel2.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jLabel2AncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         btnExit.addActionListener(new java.awt.event.ActionListener() {
@@ -133,7 +143,7 @@ public class Withdrawal extends javax.swing.JFrame {
                 btnExitActionPerformed(evt);
             }
         });
-        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 672, 60, 10));
+        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 672, 60, 20));
 
         pack();
         setLocationRelativeTo(null);
@@ -141,7 +151,7 @@ public class Withdrawal extends javax.swing.JFrame {
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         txtAmount.setText("");
-        value = 0;
+        value = 0;      
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btn2000ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2000ActionPerformed
@@ -172,12 +182,13 @@ public class Withdrawal extends javax.swing.JFrame {
     private void btnWithdrawActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWithdrawActionPerformed
         if ("".equals(txtAmount.getText())) {
             JOptionPane.showMessageDialog(this, "Please Enter the amount you want to withdraw");
-        } else {
+        }else{
             double amount = Double.parseDouble(txtAmount.getText());
             Date date = new Date();
             Transactions withdraw = new Transactions(pin, date, "withdraw", amount);
             try {
                 double total = getTotal();
+                System.out.println(total);
                 if (amount > total) {
                     JOptionPane.showMessageDialog(this, "Your Total balance is "+total+"!");
                     txtAmount.setText("");
@@ -185,9 +196,9 @@ public class Withdrawal extends javax.swing.JFrame {
                 } else {
                     boolean isAdded = TransactionController.depositAmount(withdraw);
                     if (isAdded) {
+                        balance = total - amount;
                         int choice = JOptionPane.showConfirmDialog(null, "Rs. " + amount + " Withdrawal Successfull! Do you want to Withdraw More?", "Withdrawal Success", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
                         if (choice == JOptionPane.YES_OPTION) {
-                            
                             txtAmount.setText("");
                             value = 0;
                         } else {
@@ -211,7 +222,7 @@ public class Withdrawal extends javax.swing.JFrame {
         for (int i = 0; i < getAllAmount.size(); i++) {
             totalAmount += getAllAmount.get(i).getAmount();
         }
-        System.out.println(totalAmount);
+        
         return totalAmount;
 
     }
@@ -222,6 +233,10 @@ public class Withdrawal extends javax.swing.JFrame {
             btnWithdrawActionPerformed(evt);
         }
     }//GEN-LAST:event_txtAmountActionPerformed
+
+    private void jLabel2AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel2AncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel2AncestorAdded
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
