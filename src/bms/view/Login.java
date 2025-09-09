@@ -4,7 +4,7 @@
  */
 package bms.view;
 
-import bms.atm.view.Transaction;
+import bms.atm.view.TransactionForm;
 import bms.controller.AccountController;
 import bms.model.Account;
 import java.sql.SQLException;
@@ -163,7 +163,7 @@ public class Login extends javax.swing.JFrame {
             Account getAcc = AccountController.getAccount(card, pin);
             if(getAcc!=null){
                 dispose();
-                new Transaction(pin).setVisible(true);
+                new TransactionForm(pin).setVisible(true);
             }else{
                 JOptionPane.showMessageDialog(this, "Invalid card number or pin! Please check again.");
                 txtCardNumber.setText("");
