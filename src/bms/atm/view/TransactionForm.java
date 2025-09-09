@@ -72,6 +72,11 @@ public class TransactionForm extends javax.swing.JFrame {
         btnPINChange1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnPINChange1.setForeground(new java.awt.Color(255, 255, 255));
         btnPINChange1.setText("PIN Change");
+        btnPINChange1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPINChange1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnPINChange1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 480, 100, -1));
 
         btnWithdraw.setBackground(new java.awt.Color(0, 51, 204));
@@ -123,6 +128,11 @@ public class TransactionForm extends javax.swing.JFrame {
         dispose();
         new FastCash(pin).setVisible(true);
     }//GEN-LAST:event_btnFCash1ActionPerformed
+
+    private void btnPINChange1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPINChange1ActionPerformed
+        dispose();
+        new PinChange(pin).setVisible(true);
+    }//GEN-LAST:event_btnPINChange1ActionPerformed
 
     /**
      * @param args the command line arguments
