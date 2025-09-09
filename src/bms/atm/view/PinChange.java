@@ -7,8 +7,6 @@ package bms.atm.view;
 import bms.controller.TransactionController;
 import bms.model.Transactions;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,10 +14,7 @@ import javax.swing.JOptionPane;
  * @author acer
  */
 public class PinChange extends javax.swing.JFrame {
-    private double value;
     private int pin;
-    private ArrayList<Transactions> getAllAmount;
-    private double balance;
 
     public PinChange(int pin) {
         this.pin = pin;
@@ -43,9 +38,9 @@ public class PinChange extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        txtNewPIN = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        txtNewPIN1 = new javax.swing.JTextField();
+        txtRePassword = new javax.swing.JPasswordField();
+        txtnewPassword = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
         btnExit = new javax.swing.JToggleButton();
 
@@ -114,13 +109,19 @@ public class PinChange extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("RE-Enter new PIN :");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 460, 110, -1));
-        getContentPane().add(txtNewPIN, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 460, 110, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Enter new PIN :");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 420, 100, -1));
-        getContentPane().add(txtNewPIN1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, 110, -1));
+
+        txtRePassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRePasswordActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtRePassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 460, 110, -1));
+        getContentPane().add(txtnewPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, 110, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon("D:\\Netbeans Projects\\Bank-Management-System\\Images\\dgsrsdfgr.jpg")); // NOI18N
         jLabel2.setText("Enter ");
@@ -133,7 +134,7 @@ public class PinChange extends javax.swing.JFrame {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, -1));
 
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,58 +148,18 @@ public class PinChange extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        lblPIN.setText("");
-        value = 0;      
+        lblPIN.setText("");    
     }//GEN-LAST:event_btnExitActionPerformed
-    private double getTotal() throws ClassNotFoundException, SQLException {
-        getAllAmount = TransactionController.getAllAmount(pin);
-        double totalAmount = 0;
-        for (int i = 0; i < getAllAmount.size(); i++) {
-            totalAmount += getAllAmount.get(i).getAmount();
-        }
-        
-        return totalAmount;
 
-    }
     private void jLabel2AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel2AncestorAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel2AncestorAdded
 
     private void btnWithdrawActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWithdrawActionPerformed
-        if ("".equals(lblPIN.getText())) {
-            JOptionPane.showMessageDialog(this, "Please Enter the amount you want to withdraw");
+        if(Integer.parseInt(txtnewPassword.getText())!=Integer.parseInt(txtRePassword.getText())){
+            JOptionPane.showMessageDialog(this, "Password Doesn't Match!");
         }else{
-            double amount = Double.parseDouble(lblPIN.getText());
-            Date date = new Date();
-            Transactions withdraw = new Transactions(pin, date, "withdraw", amount);
-            try {
-                double total = getTotal();
-                System.out.println(total);
-                if (amount > total) {
-                    JOptionPane.showMessageDialog(this, "Your Total balance is "+total+"!");
-                    lblPIN.setText("");
-                    value = 0;
-                } else {
-                    boolean isAdded = TransactionController.depositAmount(withdraw);
-                    if (isAdded) {
-                        balance = total - amount;
-                        int choice = JOptionPane.showConfirmDialog(null, "Rs. " + amount + " Withdrawal Successfull! Do you want to Withdraw More?", "Withdrawal Success", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
-                        if (choice == JOptionPane.YES_OPTION) {
-                            lblPIN.setText("");
-                            value = 0;
-                        } else {
-
-                            dispose();
-                            new TransactionForm(pin).setVisible(true);
-                        }
-                    } else {
-                        JOptionPane.showMessageDialog(this, "Your Withdrawal Unsuccessfull!");
-                        lblPIN.setText("");
-                    }
-                }
-            } catch (ClassNotFoundException | SQLException ex) {
-                JOptionPane.showMessageDialog(this, ex.getMessage());
-            }
+            
         }
     }//GEN-LAST:event_btnWithdrawActionPerformed
 
@@ -210,6 +171,12 @@ public class PinChange extends javax.swing.JFrame {
     private void lblPINAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_lblPINAncestorAdded
         lblPIN.setText(pin+"");
     }//GEN-LAST:event_lblPINAncestorAdded
+
+    private void txtRePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRePasswordActionPerformed
+        if(Integer.parseInt(txtnewPassword.getText())!=Integer.parseInt(txtRePassword.getText())){
+            JOptionPane.showMessageDialog(this, "Password Doesn't Match!");
+        }
+    }//GEN-LAST:event_txtRePasswordActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -224,7 +191,7 @@ public class PinChange extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel lblPIN;
-    private javax.swing.JTextField txtNewPIN;
-    private javax.swing.JTextField txtNewPIN1;
+    private javax.swing.JPasswordField txtRePassword;
+    private javax.swing.JPasswordField txtnewPassword;
     // End of variables declaration//GEN-END:variables
 }
