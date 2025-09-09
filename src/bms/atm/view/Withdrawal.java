@@ -215,7 +215,7 @@ public class Withdrawal extends javax.swing.JFrame {
                         } else {
                             
                             dispose();
-                            new Transaction(pin).setVisible(true);
+                            new TransactionForm(pin).setVisible(true);
                         }
                     } else {
                         JOptionPane.showMessageDialog(this, "Your Withdrawal Unsuccessfull!");

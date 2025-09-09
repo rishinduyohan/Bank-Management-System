@@ -61,7 +61,7 @@ public class FastCash extends javax.swing.JFrame {
         btnWithdraw.setBackground(new java.awt.Color(51, 51, 255));
         btnWithdraw.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnWithdraw.setForeground(new java.awt.Color(255, 255, 255));
-        btnWithdraw.setText("Withdraw");
+        btnWithdraw.setText("Get");
         btnWithdraw.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnWithdrawActionPerformed(evt);
@@ -227,7 +227,7 @@ public class FastCash extends javax.swing.JFrame {
                         } else {
 
                             dispose();
-                            new Transaction(pin).setVisible(true);
+                            new TransactionForm(pin).setVisible(true);
                         }
                     } else {
                         JOptionPane.showMessageDialog(this, "Your Withdrawal Unsuccessfull!");

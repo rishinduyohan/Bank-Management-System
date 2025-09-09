@@ -196,7 +196,7 @@ public class Deposit extends javax.swing.JFrame {
                         value = 0;
                     } else {
                         dispose();
-                        new Transaction(pin).setVisible(true);
+                        new TransactionForm(pin).setVisible(true);
                     }
                 } else {
                     JOptionPane.showMessageDialog(this, "Your Deposit Unsuccessfull!");
