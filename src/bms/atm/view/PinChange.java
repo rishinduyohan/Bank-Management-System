@@ -170,6 +170,7 @@ public class PinChange extends javax.swing.JFrame {
                 Account getAcc = AccountController.getAccount(pin);
                 boolean isUpdate = AccountController.updatePIN(getAcc, Integer.parseInt(txtnewPassword.getText()));
                 if(isUpdate){
+                    pin = Integer.parseInt(txtnewPassword.getText());
                     lblPIN.setText(txtnewPassword.getText());
                     txtnewPassword.setText("");
                     txtRePassword.setText("");
