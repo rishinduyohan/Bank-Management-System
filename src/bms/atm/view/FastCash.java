@@ -38,13 +38,13 @@ public class FastCash extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnWithdraw = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        txtAmount = new javax.swing.JTextField();
         btn20000 = new javax.swing.JButton();
         btn1000 = new javax.swing.JButton();
         btn2000 = new javax.swing.JButton();
         btn5000 = new javax.swing.JButton();
         btn10000 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        lblAmount = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btnExit = new javax.swing.JToggleButton();
 
@@ -73,13 +73,6 @@ public class FastCash extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 0));
         jLabel3.setText("Bank of Sri Lanka");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 430, -1));
-
-        txtAmount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAmountActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, 200, -1));
 
         btn20000.setText("20000");
         btn20000.addActionListener(new java.awt.event.ActionListener() {
@@ -126,6 +119,12 @@ public class FastCash extends javax.swing.JFrame {
         jLabel4.setText("Rs.");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, -1, -1));
 
+        lblAmount.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblAmount.setForeground(new java.awt.Color(255, 255, 255));
+        lblAmount.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblAmount.setText("0.00");
+        getContentPane().add(lblAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 360, 160, -1));
+
         jLabel2.setIcon(new javax.swing.ImageIcon("D:\\Netbeans Projects\\Bank-Management-System\\Images\\dgsrsdfgr.jpg")); // NOI18N
         jLabel2.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
@@ -150,72 +149,34 @@ public class FastCash extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        txtAmount.setText("");
+        lblAmount.setText("");
         value = 0;      
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btn2000ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2000ActionPerformed
         value += 2000;
-        txtAmount.setText(value + "");
+        lblAmount.setText(value + "");
     }//GEN-LAST:event_btn2000ActionPerformed
 
     private void btn1000ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1000ActionPerformed
         value += 1000;
-        txtAmount.setText(value + "");
+        lblAmount.setText(value + "");
     }//GEN-LAST:event_btn1000ActionPerformed
 
     private void btn5000ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5000ActionPerformed
         value += 5000;
-        txtAmount.setText(value + "");
+        lblAmount.setText(value + "");
     }//GEN-LAST:event_btn5000ActionPerformed
 
     private void btn10000ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn10000ActionPerformed
         value += 10000;
-        txtAmount.setText(value + "");
+        lblAmount.setText(value + "");
     }//GEN-LAST:event_btn10000ActionPerformed
 
     private void btn20000ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn20000ActionPerformed
         value += 20000;
-        txtAmount.setText(value + "");
+        lblAmount.setText(value + "");
     }//GEN-LAST:event_btn20000ActionPerformed
-
-    private void btnWithdrawActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWithdrawActionPerformed
-        if ("".equals(txtAmount.getText())) {
-            JOptionPane.showMessageDialog(this, "Please Enter the amount you want to withdraw");
-        }else{
-            double amount = Double.parseDouble(txtAmount.getText());
-            Date date = new Date();
-            Transactions withdraw = new Transactions(pin, date, "withdraw", amount);
-            try {
-                double total = getTotal();
-                System.out.println(total);
-                if (amount > total) {
-                    JOptionPane.showMessageDialog(this, "Your Total balance is "+total+"!");
-                    txtAmount.setText("");
-                    value = 0;
-                } else {
-                    boolean isAdded = TransactionController.depositAmount(withdraw);
-                    if (isAdded) {
-                        balance = total - amount;
-                        int choice = JOptionPane.showConfirmDialog(null, "Rs. " + amount + " Withdrawal Successfull! Do you want to Withdraw More?", "Withdrawal Success", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
-                        if (choice == JOptionPane.YES_OPTION) {
-                            txtAmount.setText("");
-                            value = 0;
-                        } else {
-                            
-                            dispose();
-                            new Transaction(pin).setVisible(true);
-                        }
-                    } else {
-                        JOptionPane.showMessageDialog(this, "Your Withdrawal Unsuccessfull!");
-                        txtAmount.setText("");
-                    }
-                }
-            } catch (ClassNotFoundException | SQLException ex) {
-                JOptionPane.showMessageDialog(this, ex.getMessage());
-            }
-        }
-    }//GEN-LAST:event_btnWithdrawActionPerformed
     private double getTotal() throws ClassNotFoundException, SQLException {
         getAllAmount = TransactionController.getAllAmount(pin);
         double totalAmount = 0;
@@ -226,17 +187,47 @@ public class FastCash extends javax.swing.JFrame {
         return totalAmount;
 
     }
-    private void txtAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAmountActionPerformed
-        if ("".equals(txtAmount.getText())) {
-            JOptionPane.showMessageDialog(this, "Please Enter the amount you want to Withdraw");
-        } else {
-            btnWithdrawActionPerformed(evt);
-        }
-    }//GEN-LAST:event_txtAmountActionPerformed
-
     private void jLabel2AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel2AncestorAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel2AncestorAdded
+
+    private void btnWithdrawActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWithdrawActionPerformed
+        if ("".equals(lblAmount.getText())) {
+            JOptionPane.showMessageDialog(this, "Please Enter the amount you want to withdraw");
+        }else{
+            double amount = Double.parseDouble(lblAmount.getText());
+            Date date = new Date();
+            Transactions withdraw = new Transactions(pin, date, "withdraw", amount);
+            try {
+                double total = getTotal();
+                System.out.println(total);
+                if (amount > total) {
+                    JOptionPane.showMessageDialog(this, "Your Total balance is "+total+"!");
+                    lblAmount.setText("");
+                    value = 0;
+                } else {
+                    boolean isAdded = TransactionController.depositAmount(withdraw);
+                    if (isAdded) {
+                        balance = total - amount;
+                        int choice = JOptionPane.showConfirmDialog(null, "Rs. " + amount + " Withdrawal Successfull! Do you want to Withdraw More?", "Withdrawal Success", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+                        if (choice == JOptionPane.YES_OPTION) {
+                            lblAmount.setText("");
+                            value = 0;
+                        } else {
+
+                            dispose();
+                            new Transaction(pin).setVisible(true);
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Your Withdrawal Unsuccessfull!");
+                        lblAmount.setText("");
+                    }
+                }
+            } catch (ClassNotFoundException | SQLException ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage());
+            }
+        }
+    }//GEN-LAST:event_btnWithdrawActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -251,6 +242,6 @@ public class FastCash extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField txtAmount;
+    private javax.swing.JLabel lblAmount;
     // End of variables declaration//GEN-END:variables
 }

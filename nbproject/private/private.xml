@@ -5,6 +5,7 @@
         <group>
             <file>file:/D:/Netbeans%20Projects/Bank-Management-System/src/bms/controller/AccountController.java</file>
             <file>file:/D:/Netbeans%20Projects/Bank-Management-System/src/bms/view/Login.java</file>
+            <file>file:/D:/Netbeans%20Projects/Bank-Management-System/src/bms/atm/view/FastCash.java</file>
             <file>file:/D:/Netbeans%20Projects/Bank-Management-System/src/bms/atm/view/Withdrawal.java</file>
             <file>file:/D:/Netbeans%20Projects/Bank-Management-System/src/bms/atm/view/Transaction.java</file>
             <file>file:/D:/Netbeans%20Projects/Bank-Management-System/src/bms/model/Transactions.java</file>
