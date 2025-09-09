@@ -16,10 +16,10 @@ public class TransactionController {
     public static boolean depositAmount(Transactions deposit) throws ClassNotFoundException, SQLException{
         String SQL = "Insert into Transactiondetails values (?,?,?,?)";
         PreparedStatement stm = DBConnection.getInstance().getConnection().prepareStatement(SQL);
-        stm.setObject(1, deposit.getPin());
-        stm.setObject(2, deposit.getDate());
-        stm.setObject(3, deposit.getType());
-        stm.setObject(4, deposit.getAmount());
+        stm.setObject(1, deposit.getDate());
+        stm.setObject(2, deposit.getType());
+        stm.setObject(3, deposit.getAmount());
+        stm.setObject(4, deposit.getPin());
         int res = stm.executeUpdate();
         return res>0;
     }

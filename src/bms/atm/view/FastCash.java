@@ -7,6 +7,7 @@ package bms.atm.view;
 import bms.controller.TransactionController;
 import bms.model.Transactions;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
 
@@ -14,12 +15,13 @@ import javax.swing.JOptionPane;
  *
  * @author acer
  */
-public class Deposit extends javax.swing.JFrame {
-
+public class FastCash extends javax.swing.JFrame {
     private double value;
     private int pin;
+    private ArrayList<Transactions> getAllAmount;
+    private double balance;
 
-    public Deposit(int pin) {
+    public FastCash(int pin) {
         this.pin = pin;
         initComponents();
     }
@@ -34,15 +36,15 @@ public class Deposit extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        btnDeposit = new javax.swing.JButton();
+        btnWithdraw = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        txtAmount = new javax.swing.JTextField();
         btn20000 = new javax.swing.JButton();
         btn1000 = new javax.swing.JButton();
         btn2000 = new javax.swing.JButton();
         btn5000 = new javax.swing.JButton();
         btn10000 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        lblAmount = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         btnExit = new javax.swing.JToggleButton();
@@ -53,32 +55,25 @@ public class Deposit extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel1.setText("Enter the amount you want to deposit");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, 220, 30));
+        jLabel1.setText("Enter the amount you want to withdraw");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, 230, 30));
 
-        btnDeposit.setBackground(new java.awt.Color(51, 51, 255));
-        btnDeposit.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnDeposit.setForeground(new java.awt.Color(255, 255, 255));
-        btnDeposit.setText("Deposit");
-        btnDeposit.addActionListener(new java.awt.event.ActionListener() {
+        btnWithdraw.setBackground(new java.awt.Color(51, 51, 255));
+        btnWithdraw.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnWithdraw.setForeground(new java.awt.Color(255, 255, 255));
+        btnWithdraw.setText("Get");
+        btnWithdraw.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDepositActionPerformed(evt);
+                btnWithdrawActionPerformed(evt);
             }
         });
-        getContentPane().add(btnDeposit, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 500, 80, -1));
+        getContentPane().add(btnWithdraw, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 500, 100, -1));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Bahnschrift", 0, 50)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 0));
         jLabel3.setText("Bank of Sri Lanka");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 430, -1));
-
-        txtAmount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAmountActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 360, 200, -1));
 
         btn20000.setText("20000");
         btn20000.addActionListener(new java.awt.event.ActionListener() {
@@ -125,6 +120,12 @@ public class Deposit extends javax.swing.JFrame {
         jLabel4.setText("Rs.");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, -1, -1));
 
+        lblAmount.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblAmount.setForeground(new java.awt.Color(255, 255, 255));
+        lblAmount.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblAmount.setText("0.00");
+        getContentPane().add(lblAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 360, 160, -1));
+
         jButton1.setBackground(new java.awt.Color(0, 204, 0));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Back");
@@ -136,6 +137,15 @@ public class Deposit extends javax.swing.JFrame {
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 510, 60, 20));
 
         jLabel2.setIcon(new javax.swing.ImageIcon("D:\\Netbeans Projects\\Bank-Management-System\\Images\\dgsrsdfgr.jpg")); // NOI18N
+        jLabel2.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jLabel2AncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         btnExit.addActionListener(new java.awt.event.ActionListener() {
@@ -143,78 +153,92 @@ public class Deposit extends javax.swing.JFrame {
                 btnExitActionPerformed(evt);
             }
         });
-        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 672, 60, 10));
+        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 672, 60, 20));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        txtAmount.setText("");
-        value = 0;
+        lblAmount.setText("");
+        value = 0;      
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btn2000ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2000ActionPerformed
         value += 2000;
-        txtAmount.setText(value + "");
+        lblAmount.setText(value + "");
     }//GEN-LAST:event_btn2000ActionPerformed
 
     private void btn1000ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1000ActionPerformed
         value += 1000;
-        txtAmount.setText(value + "");
+        lblAmount.setText(value + "");
     }//GEN-LAST:event_btn1000ActionPerformed
 
     private void btn5000ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5000ActionPerformed
         value += 5000;
-        txtAmount.setText(value + "");
+        lblAmount.setText(value + "");
     }//GEN-LAST:event_btn5000ActionPerformed
 
     private void btn10000ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn10000ActionPerformed
         value += 10000;
-        txtAmount.setText(value + "");
+        lblAmount.setText(value + "");
     }//GEN-LAST:event_btn10000ActionPerformed
 
     private void btn20000ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn20000ActionPerformed
         value += 20000;
-        txtAmount.setText(value + "");
+        lblAmount.setText(value + "");
     }//GEN-LAST:event_btn20000ActionPerformed
+    private double getTotal() throws ClassNotFoundException, SQLException {
+        getAllAmount = TransactionController.getAllAmount(pin);
+        double totalAmount = 0;
+        for (int i = 0; i < getAllAmount.size(); i++) {
+            totalAmount += getAllAmount.get(i).getAmount();
+        }
+        
+        return totalAmount;
 
-    private void btnDepositActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepositActionPerformed
+    }
+    private void jLabel2AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel2AncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel2AncestorAdded
 
-        if ("".equals(txtAmount.getText())) {
-            JOptionPane.showMessageDialog(this, "Please Enter the amount you want to deposit");
-        } else {
-            double amount = Double.parseDouble(txtAmount.getText());
+    private void btnWithdrawActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWithdrawActionPerformed
+        if ("".equals(lblAmount.getText())) {
+            JOptionPane.showMessageDialog(this, "Please Enter the amount you want to withdraw");
+        }else{
+            double amount = Double.parseDouble(lblAmount.getText());
             Date date = new Date();
-            Transactions deposite = new Transactions(pin, date, "deposit", amount);
+            Transactions withdraw = new Transactions(pin, date, "withdraw", amount);
             try {
-                boolean isAdded = TransactionController.depositAmount(deposite);
-                if (isAdded) {
-                    int choice = JOptionPane.showConfirmDialog(null, "Rs. '" + amount + "' Deposit Successfull! Do you want to Deposit More?", "Deposit Success", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
-                    if (choice == JOptionPane.YES_OPTION) {
-                        txtAmount.setText("");
-                        value = 0;
-                    } else {
-                        dispose();
-                        new TransactionForm(pin).setVisible(true);
-                    }
+                double total = getTotal();
+                System.out.println(total);
+                if (amount > total) {
+                    JOptionPane.showMessageDialog(this, "Your Total balance is "+total+"!");
+                    lblAmount.setText("");
+                    value = 0;
                 } else {
-                    JOptionPane.showMessageDialog(this, "Your Deposit Unsuccessfull!");
-                    txtAmount.setText("");
+                    boolean isAdded = TransactionController.depositAmount(withdraw);
+                    if (isAdded) {
+                        balance = total - amount;
+                        int choice = JOptionPane.showConfirmDialog(null, "Rs. " + amount + " Withdrawal Successfull! Do you want to Withdraw More?", "Withdrawal Success", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+                        if (choice == JOptionPane.YES_OPTION) {
+                            lblAmount.setText("");
+                            value = 0;
+                        } else {
+
+                            dispose();
+                            new TransactionForm(pin).setVisible(true);
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Your Withdrawal Unsuccessfull!");
+                        lblAmount.setText("");
+                    }
                 }
             } catch (ClassNotFoundException | SQLException ex) {
                 JOptionPane.showMessageDialog(this, ex.getMessage());
             }
         }
-    }//GEN-LAST:event_btnDepositActionPerformed
-
-    private void txtAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAmountActionPerformed
-        if ("".equals(txtAmount.getText())) {
-            JOptionPane.showMessageDialog(this, "Please Enter the amount you want to deposit");
-        } else {
-            btnDepositActionPerformed(evt);
-        }
-    }//GEN-LAST:event_txtAmountActionPerformed
+    }//GEN-LAST:event_btnWithdrawActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         dispose();
@@ -228,13 +252,13 @@ public class Deposit extends javax.swing.JFrame {
     private javax.swing.JButton btn2000;
     private javax.swing.JButton btn20000;
     private javax.swing.JButton btn5000;
-    private javax.swing.JButton btnDeposit;
     private javax.swing.JToggleButton btnExit;
+    private javax.swing.JButton btnWithdraw;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField txtAmount;
+    private javax.swing.JLabel lblAmount;
     // End of variables declaration//GEN-END:variables
 }
