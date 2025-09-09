@@ -43,6 +43,7 @@ public class Deposit extends javax.swing.JFrame {
         btn5000 = new javax.swing.JButton();
         btn10000 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         btnExit = new javax.swing.JToggleButton();
 
@@ -64,7 +65,7 @@ public class Deposit extends javax.swing.JFrame {
                 btnDepositActionPerformed(evt);
             }
         });
-        getContentPane().add(btnDeposit, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 500, 100, -1));
+        getContentPane().add(btnDeposit, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 500, 80, -1));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Bahnschrift", 0, 50)); // NOI18N
@@ -123,6 +124,16 @@ public class Deposit extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Rs.");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, -1, -1));
+
+        jButton1.setBackground(new java.awt.Color(0, 204, 0));
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Back");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 510, 60, 20));
 
         jLabel2.setIcon(new javax.swing.ImageIcon("D:\\Netbeans Projects\\Bank-Management-System\\Images\\dgsrsdfgr.jpg")); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -205,6 +216,11 @@ public class Deposit extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtAmountActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        dispose();
+        new TransactionForm(pin).setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn1000;
@@ -214,6 +230,7 @@ public class Deposit extends javax.swing.JFrame {
     private javax.swing.JButton btn5000;
     private javax.swing.JButton btnDeposit;
     private javax.swing.JToggleButton btnExit;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

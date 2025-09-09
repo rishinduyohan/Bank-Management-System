@@ -8,12 +8,13 @@ package bms.atm.view;
  *
  * @author acer
  */
-public class Transactions extends javax.swing.JFrame {
-
+public class TransactionForm extends javax.swing.JFrame {
+    private int pin;
     /**
      * Creates new form Transactions
      */
-    public Transactions() {
+    public TransactionForm(int pin) {
+        this.pin = pin;
         initComponents();
     }
 
@@ -39,27 +40,54 @@ public class Transactions extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnBalance.setBackground(new java.awt.Color(255, 255, 0));
+        btnBalance.setBackground(new java.awt.Color(0, 51, 204));
+        btnBalance.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnBalance.setForeground(new java.awt.Color(255, 255, 255));
         btnBalance.setText("Balance");
         getContentPane().add(btnBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 480, 90, -1));
 
-        btnDeposit.setBackground(new java.awt.Color(255, 255, 0));
+        btnDeposit.setBackground(new java.awt.Color(0, 0, 204));
+        btnDeposit.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnDeposit.setForeground(new java.awt.Color(255, 255, 255));
         btnDeposit.setText("Deposit");
-        getContentPane().add(btnDeposit, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 420, 90, -1));
+        btnDeposit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDepositActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnDeposit, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 420, 100, -1));
 
-        btnFCash1.setBackground(new java.awt.Color(255, 255, 0));
+        btnFCash1.setBackground(new java.awt.Color(0, 51, 204));
+        btnFCash1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnFCash1.setForeground(new java.awt.Color(255, 255, 255));
         btnFCash1.setText("Fast Cash");
-        getContentPane().add(btnFCash1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 450, 90, -1));
+        btnFCash1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFCash1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnFCash1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 450, 100, -1));
 
-        btnPINChange1.setBackground(new java.awt.Color(255, 255, 0));
+        btnPINChange1.setBackground(new java.awt.Color(0, 51, 204));
+        btnPINChange1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnPINChange1.setForeground(new java.awt.Color(255, 255, 255));
         btnPINChange1.setText("PIN Change");
-        getContentPane().add(btnPINChange1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 480, -1, -1));
+        getContentPane().add(btnPINChange1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 480, 100, -1));
 
-        btnWithdraw.setBackground(new java.awt.Color(255, 255, 0));
+        btnWithdraw.setBackground(new java.awt.Color(0, 51, 204));
+        btnWithdraw.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnWithdraw.setForeground(new java.awt.Color(255, 255, 255));
         btnWithdraw.setText("Withdraw");
+        btnWithdraw.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnWithdrawActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnWithdraw, new org.netbeans.lib.awtextra.AbsoluteConstraints(341, 420, 90, -1));
 
-        btnMiniState1.setBackground(new java.awt.Color(255, 255, 0));
+        btnMiniState1.setBackground(new java.awt.Color(0, 51, 204));
+        btnMiniState1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnMiniState1.setForeground(new java.awt.Color(255, 255, 255));
         btnMiniState1.setText("Mini State");
         getContentPane().add(btnMiniState1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 450, 90, -1));
 
@@ -78,7 +106,23 @@ public class Transactions extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnDepositActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepositActionPerformed
+       dispose();
+       new Deposit(pin).setVisible(true);
+    }//GEN-LAST:event_btnDepositActionPerformed
+
+    private void btnWithdrawActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWithdrawActionPerformed
+        dispose();
+        new Withdrawal(pin).setVisible(true);
+    }//GEN-LAST:event_btnWithdrawActionPerformed
+
+    private void btnFCash1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFCash1ActionPerformed
+        dispose();
+        new FastCash(pin).setVisible(true);
+    }//GEN-LAST:event_btnFCash1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -97,20 +141,21 @@ public class Transactions extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Transactions.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TransactionForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Transactions.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TransactionForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Transactions.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TransactionForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Transactions.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TransactionForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Transactions().setVisible(true);
+                new TransactionForm(1234).setVisible(true);
             }
         });
     }
