@@ -168,7 +168,17 @@ public class PinChange extends javax.swing.JFrame {
         }else{
             try {
                 Account getAcc = AccountController.getAccount(pin);
-                
+                boolean isUpdate = AccountController.updatePIN(getAcc, Integer.parseInt(txtnewPassword.getText()));
+                if(isUpdate){
+                    lblPIN.setText(txtnewPassword.getText());
+                    txtnewPassword.setText("");
+                    txtRePassword.setText("");
+                    JOptionPane.showMessageDialog(this, "PIN Changed Success!");
+                }else{
+                    txtnewPassword.setText("");
+                    txtRePassword.setText("");
+                    JOptionPane.showMessageDialog(this, "PIN not Changed!");
+                }
             } catch (ClassNotFoundException | SQLException ex) {
                 JOptionPane.showMessageDialog(this, ex.getMessage());
             }

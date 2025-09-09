@@ -51,4 +51,10 @@ public class AccountController {
         }
         return null;
     }
+    public static boolean updatePIN(Account acc,int pin) throws ClassNotFoundException, SQLException{
+        int oldPin = acc.getPin();
+        String SQL = "Update accountdetails set pin='"+pin+"' where pin='"+oldPin+"'";
+        Statement stm = DBConnection.getInstance().getConnection().createStatement();
+        return stm.executeUpdate(SQL)>0;
+    }
 }
