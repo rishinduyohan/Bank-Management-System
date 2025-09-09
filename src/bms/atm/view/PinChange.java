@@ -4,9 +4,13 @@
  */
 package bms.atm.view;
 
+import bms.controller.AccountController;
 import bms.controller.TransactionController;
+import bms.model.Account;
 import bms.model.Transactions;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -148,7 +152,7 @@ public class PinChange extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        lblPIN.setText("");    
+  
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void jLabel2AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel2AncestorAdded
@@ -159,7 +163,16 @@ public class PinChange extends javax.swing.JFrame {
         if(Integer.parseInt(txtnewPassword.getText())!=Integer.parseInt(txtRePassword.getText())){
             JOptionPane.showMessageDialog(this, "Password Doesn't Match!");
         }else{
-            
+        int choice = JOptionPane.showConfirmDialog(null, "Do you want to Change PIN Number?", "PIN Changed", JOptionPane.OK_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
+        if(choice!=JOptionPane.OK_OPTION){
+        }else{
+            try {
+                Account getAcc = AccountController.getAccount(pin);
+                
+            } catch (ClassNotFoundException | SQLException ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage());
+            }
+        }
         }
     }//GEN-LAST:event_btnWithdrawActionPerformed
 

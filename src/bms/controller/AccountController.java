@@ -38,4 +38,17 @@ public class AccountController {
         }
         return null;
     }
+    public static Account getAccount(int pin) throws ClassNotFoundException, SQLException{
+        String SQL = "Select * from accountdetails where pin='"+pin+"'";
+        Statement stm = DBConnection.getInstance().getConnection().createStatement();
+        ResultSet res = stm.executeQuery(SQL);
+        if(res.next()){
+            String cardnumber = res.getString("cardNumber");
+            String nic = res.getString("nic");
+            String accType = res.getString("accountType");
+            String Services  = res.getString("services");
+            return new Account(nic, accType, cardnumber, pin, Services);
+        }
+        return null;
+    }
 }
