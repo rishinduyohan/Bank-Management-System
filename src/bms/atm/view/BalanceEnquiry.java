@@ -9,6 +9,8 @@ import bms.model.Transactions;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,7 +18,6 @@ import javax.swing.JOptionPane;
  * @author acer
  */
 public class BalanceEnquiry extends javax.swing.JFrame {
-    private double value;
     private int pin;
     private ArrayList<Transactions> getAllAmount;
     private double balance;
@@ -79,6 +80,15 @@ public class BalanceEnquiry extends javax.swing.JFrame {
         lblAmount.setForeground(new java.awt.Color(255, 255, 255));
         lblAmount.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblAmount.setText("0.00");
+        lblAmount.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                lblAmountAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         getContentPane().add(lblAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, 130, -1));
 
         jButton1.setBackground(new java.awt.Color(0, 204, 0));
@@ -115,65 +125,43 @@ public class BalanceEnquiry extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        lblAmount.setText("");
-        value = 0;      
+        lblAmount.setText("");    
     }//GEN-LAST:event_btnExitActionPerformed
+
+    private void jLabel2AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel2AncestorAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel2AncestorAdded
     private double getTotal() throws ClassNotFoundException, SQLException {
         getAllAmount = TransactionController.getAllAmount(pin);
         double totalAmount = 0;
         for (int i = 0; i < getAllAmount.size(); i++) {
-            totalAmount += getAllAmount.get(i).getAmount();
-        }
-        
-        return totalAmount;
-
-    }
-    private void jLabel2AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel2AncestorAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel2AncestorAdded
-
-    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
-        if ("".equals(lblAmount.getText())) {
-            JOptionPane.showMessageDialog(this, "Please Enter the amount you want to withdraw");
-        }else{
-            double amount = Double.parseDouble(lblAmount.getText());
-            Date date = new Date();
-            Transactions withdraw = new Transactions(pin, date, "withdraw", amount);
-            try {
-                double total = getTotal();
-                System.out.println(total);
-                if (amount > total) {
-                    JOptionPane.showMessageDialog(this, "Your Total balance is "+total+"!");
-                    lblAmount.setText("");
-                    value = 0;
-                } else {
-                    boolean isAdded = TransactionController.depositAmount(withdraw);
-                    if (isAdded) {
-                        balance = total - amount;
-                        int choice = JOptionPane.showConfirmDialog(null, "Rs. " + amount + " Withdrawal Successfull! Do you want to Withdraw More?", "Withdrawal Success", JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
-                        if (choice == JOptionPane.YES_OPTION) {
-                            lblAmount.setText("");
-                            value = 0;
-                        } else {
-
-                            dispose();
-                            new TransactionForm(pin).setVisible(true);
-                        }
-                    } else {
-                        JOptionPane.showMessageDialog(this, "Your Withdrawal Unsuccessfull!");
-                        lblAmount.setText("");
-                    }
-                }
-            } catch (ClassNotFoundException | SQLException ex) {
-                JOptionPane.showMessageDialog(this, ex.getMessage());
+            if("deposit".equals(getAllAmount.get(i).getType())){
+                totalAmount += getAllAmount.get(i).getAmount();
+            }else{
+                totalAmount -= getAllAmount.get(i).getAmount();
             }
         }
+        return totalAmount;
+        
+    }
+    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+        
     }//GEN-LAST:event_btnRefreshActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         dispose();
         new TransactionForm(pin).setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void lblAmountAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_lblAmountAncestorAdded
+        double total;
+        try {
+            total = getTotal();
+            lblAmount.setText(total+"");
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(BalanceEnquiry.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_lblAmountAncestorAdded
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
