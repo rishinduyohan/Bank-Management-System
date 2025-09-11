@@ -36,7 +36,7 @@ public class BalanceEnquiry extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        btnWithdraw = new javax.swing.JButton();
+        btnRefresh = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         lblAmount = new javax.swing.JLabel();
@@ -53,16 +53,16 @@ public class BalanceEnquiry extends javax.swing.JFrame {
         jLabel1.setText("View your current balance in your account");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, 240, 30));
 
-        btnWithdraw.setBackground(new java.awt.Color(51, 51, 255));
-        btnWithdraw.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnWithdraw.setForeground(new java.awt.Color(255, 255, 255));
-        btnWithdraw.setText("Refresh");
-        btnWithdraw.addActionListener(new java.awt.event.ActionListener() {
+        btnRefresh.setBackground(new java.awt.Color(51, 51, 255));
+        btnRefresh.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnRefresh.setForeground(new java.awt.Color(255, 255, 255));
+        btnRefresh.setText("Refresh");
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnWithdrawActionPerformed(evt);
+                btnRefreshActionPerformed(evt);
             }
         });
-        getContentPane().add(btnWithdraw, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 500, 100, -1));
+        getContentPane().add(btnRefresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 500, 100, -1));
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Bahnschrift", 0, 50)); // NOI18N
@@ -132,7 +132,7 @@ public class BalanceEnquiry extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel2AncestorAdded
 
-    private void btnWithdrawActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWithdrawActionPerformed
+    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
         if ("".equals(lblAmount.getText())) {
             JOptionPane.showMessageDialog(this, "Please Enter the amount you want to withdraw");
         }else{
@@ -168,7 +168,7 @@ public class BalanceEnquiry extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, ex.getMessage());
             }
         }
-    }//GEN-LAST:event_btnWithdrawActionPerformed
+    }//GEN-LAST:event_btnRefreshActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         dispose();
@@ -178,7 +178,7 @@ public class BalanceEnquiry extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton btnExit;
-    private javax.swing.JButton btnWithdraw;
+    private javax.swing.JButton btnRefresh;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
