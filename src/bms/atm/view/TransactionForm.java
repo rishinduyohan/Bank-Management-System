@@ -44,6 +44,11 @@ public class TransactionForm extends javax.swing.JFrame {
         btnBalance.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnBalance.setForeground(new java.awt.Color(255, 255, 255));
         btnBalance.setText("Balance");
+        btnBalance.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBalanceActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnBalance, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 480, 90, -1));
 
         btnDeposit.setBackground(new java.awt.Color(0, 0, 204));
@@ -133,6 +138,11 @@ public class TransactionForm extends javax.swing.JFrame {
         dispose();
         new PinChange(pin).setVisible(true);
     }//GEN-LAST:event_btnPINChange1ActionPerformed
+
+    private void btnBalanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBalanceActionPerformed
+        dispose();
+        new BalanceEnquiry(pin).setVisible(true);
+    }//GEN-LAST:event_btnBalanceActionPerformed
 
     /**
      * @param args the command line arguments

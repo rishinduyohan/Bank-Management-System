@@ -192,7 +192,11 @@ public class FastCash extends javax.swing.JFrame {
         getAllAmount = TransactionController.getAllAmount(pin);
         double totalAmount = 0;
         for (int i = 0; i < getAllAmount.size(); i++) {
-            totalAmount += getAllAmount.get(i).getAmount();
+            if("deposit".equals(getAllAmount.get(i).getType())){
+                totalAmount += getAllAmount.get(i).getAmount();
+            }else{
+                totalAmount -= getAllAmount.get(i).getAmount();
+            }
         }
         
         return totalAmount;
