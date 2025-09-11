@@ -5,12 +5,8 @@
 package bms.atm.view;
 
 import bms.controller.AccountController;
-import bms.controller.TransactionController;
 import bms.model.Account;
-import bms.model.Transactions;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**

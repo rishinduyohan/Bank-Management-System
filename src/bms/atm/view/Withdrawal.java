@@ -197,8 +197,7 @@ public class Withdrawal extends javax.swing.JFrame {
             double amount = Double.parseDouble(txtAmount.getText());
             Date date = new Date();
             Transactions withdraw = new Transactions(pin, date, "withdraw", amount);
-            try {
-                
+            try { 
                 double total = getTotal();
                 System.out.println(total);
                 if (amount > total) {
@@ -232,14 +231,14 @@ public class Withdrawal extends javax.swing.JFrame {
         getAllAmount = TransactionController.getAllAmount(pin);
         double totalAmount = 0;
         for (int i = 0; i < getAllAmount.size(); i++) {
-            if("Deposit".equals(getAllAmount.get(i).getType())){
+            if("deposit".equals(getAllAmount.get(i).getType())){
                 totalAmount += getAllAmount.get(i).getAmount();
             }else{
                 totalAmount -= getAllAmount.get(i).getAmount();
             }
         }
         return totalAmount;
-
+        
     }
     private void txtAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAmountActionPerformed
         if ("".equals(txtAmount.getText())) {
