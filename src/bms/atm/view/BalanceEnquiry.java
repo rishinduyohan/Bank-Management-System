@@ -8,6 +8,8 @@ import bms.controller.TransactionController;
 import bms.model.Transactions;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -142,7 +144,22 @@ public class BalanceEnquiry extends javax.swing.JFrame {
         
     }
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
-        
+        try {
+            getAllAmount = TransactionController.getAllAmount(pin);
+            double totalAmount = 0;
+            for (int i = 0; i < getAllAmount.size(); i++) {
+                if("deposit".equals(getAllAmount.get(i).getType())){
+                    totalAmount += getAllAmount.get(i).getAmount();
+                }else{
+                    totalAmount -= getAllAmount.get(i).getAmount();
+                }
+            }
+            lblAmount.setText(totalAmount+"");
+                        JOptionPane.showMessageDialog(this, "Refreshed Success!");
+
+        } catch (ClassNotFoundException | SQLException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
     }//GEN-LAST:event_btnRefreshActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
