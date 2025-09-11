@@ -8,9 +8,6 @@ import bms.controller.TransactionController;
 import bms.model.Transactions;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -159,7 +156,7 @@ public class BalanceEnquiry extends javax.swing.JFrame {
             total = getTotal();
             lblAmount.setText(total+"");
         } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(BalanceEnquiry.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, ex.getMessage());
         }
     }//GEN-LAST:event_lblAmountAncestorAdded
 
