@@ -305,6 +305,7 @@ public class SignUpSecForm extends javax.swing.JFrame {
         } catch (ClassNotFoundException | SQLException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage());
         }
+        dispose();
         new SignUpThirdForm(random, nic).setVisible(true);
     }//GEN-LAST:event_btnNextActionPerformed
 
