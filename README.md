@@ -41,6 +41,22 @@
       <td>🎨 User-Friendly GUI</td>
     </tr>
   </table>
+  <br>
+   <!-- Getting Started -->
+  <h2 style="color:#2563eb; margin-top:40px;">📂 Getting Started</h2>
+  <p style="max-width:700px; margin:auto; font-size:16px; color:#444;">
+    Follow these steps to run the project locally on your system:
+  </p>
+
+  <ol style="text-align:left; max-width:700px; margin:auto; font-size:16px; color:#444; line-height:1.8;">
+    <li>📥 Clone this repository:
+      <pre><code>git clone https://github.com/your-username/Bank-Management-System.git</code></pre>
+    </li>
+    <li>📂 Open the project in your preferred IDE (e.g., <b>Eclipse</b> or <b>IntelliJ</b>).</li>
+    <li>⚙️ Compile the Java files inside the <b>src</b> folder.</li>
+    <li>▶️ Run the <b>Main.java</b> class to launch the application.</li>
+  </ol>
+  <br>
   <!-- Tech Stack -->
   <h2 style="color:#2563eb; margin-top:40px;">🛠️ Tech Stack</h2>
   <p>
