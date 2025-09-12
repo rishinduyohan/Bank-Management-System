@@ -99,6 +99,11 @@ public class TransactionForm extends javax.swing.JFrame {
         btnMiniState1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnMiniState1.setForeground(new java.awt.Color(255, 255, 255));
         btnMiniState1.setText("Mini State");
+        btnMiniState1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMiniState1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnMiniState1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 450, 90, -1));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -143,6 +148,10 @@ public class TransactionForm extends javax.swing.JFrame {
         dispose();
         new BalanceEnquiry(pin).setVisible(true);
     }//GEN-LAST:event_btnBalanceActionPerformed
+
+    private void btnMiniState1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMiniState1ActionPerformed
+        new MiniState(pin).setVisible(true);
+    }//GEN-LAST:event_btnMiniState1ActionPerformed
 
     /**
      * @param args the command line arguments
