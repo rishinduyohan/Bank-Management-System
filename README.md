@@ -50,7 +50,7 @@
 
   <ol style="text-align:left; max-width:700px; margin:auto; font-size:16px; color:#444; line-height:1.8;">
     <li>📥 Clone this repository:
-      <pre><code>git clone https://github.com/your-username/Bank-Management-System.git</code></pre>
+      <pre><code>git clone https://github.com/rishinduyohan/Bank-Management-System.git</code></pre>
     </li>
     <li>📂 Open the project in your preferred IDE (e.g., <b>Eclipse</b> or <b>IntelliJ</b>).</li>
     <li>⚙️ Compile the Java files inside the <b>src</b> folder.</li>
